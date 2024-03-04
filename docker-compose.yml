@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  api-gateway:
+    build: ./services/api-gateway
+    ports:
+      - "8765:8765"
+    networks:
+      - ssb-network
+  eureka-server:
+    build: ./services/eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - ssb-network
+networks:
+  ssb-network:
+    driver: bridge

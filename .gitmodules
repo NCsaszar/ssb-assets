@@ -1,0 +1,6 @@
+[submodule "services/api-gateway"]
+	path = services/api-gateway
+	url = git@git1.smoothstack.com:cohorts/2023/2023_12_11_java/organizations/the-ledger-legends/apigateway.git
+[submodule "services/eureka-server"]
+	path = services/eureka-server
+	url = git@git1.smoothstack.com:cohorts/2023/2023_12_11_java/organizations/the-ledger-legends/eurekaserver.git
