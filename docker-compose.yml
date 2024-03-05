@@ -47,7 +47,6 @@ services:
     networks:
       - ssb-network
 
-
   branches-db:
     image: postgres:latest
     environment:
