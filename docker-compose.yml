@@ -2,8 +2,12 @@ version: '3.8'
 services:
   api-gateway:
     build: ./services/api-gateway
+    environment:
+      - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
     ports:
       - "8765:8765"
+    depends_on:
+      - eureka-server
     networks:
       - ssb-network
   eureka-server:
@@ -12,6 +16,36 @@ services:
       - "8761:8761"
     networks:
       - ssb-network
+  accounts-transactions:
+    build: ./services/accounts-transactions/accounts-service
+    ports:
+      - "8090:8090"
+    depends_on:
+      - eureka-server
+      - api-gateway
+      - accounts-db
+    environment:
+      - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://accounts-db:5432/AccountsService
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=9557
+    networks:
+      - ssb-network
+  accounts-db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: AccountsService
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 9557
+    volumes:
+     - accounts-db-data:/var/lib/postgresql/data
+     - ./accounts-transactions-init:/docker-entrypoint-initdb.d
+    networks:
+     - ssb-network
+
+volumes:
+  accounts-db-data:
+
 networks:
   ssb-network:
     driver: bridge
