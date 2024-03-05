@@ -1,20 +1,23 @@
 #!/bin/bash
 
-echo "Updating all submodules to the latest commit on their respective branches..."
+# Display starting message
+echo "Updating all submodules to the latest commit..."
 
-# Navigate to each submodule, checkout the correct branch, and pull the latest changes
-git submodule foreach '
-  echo "Checking out and pulling latest for $name on branch: $(git config -f $toplevel/.gitmodules submodule.$name.branch)"
-  git checkout $(git config -f $toplevel/.gitmodules submodule.$name.branch) && git pull
-'
+# Update all submodules to the latest commit from their tracked branch
+git submodule update --remote
 
-# Add any changes, including updated submodules
-git add .
+# Check if there are any changes to commit
+if [[ `git status --porcelain` ]]; then
+  # Stage all changes, including submodule updates
+  git add .
 
-# Check if there are changes to commit
-if [ -n "$(git status --porcelain)" ]; then
-  git commit -m "Updated submodules to the latest commits on their tracked branches"
-  echo "Submodules updated and committed. Please push your changes to the remote repository."
+  # Commit the updates
+  git commit -m "Updated submodules to the latest commits"
+
+  # Push the updates to the remote repository
+  git push
+
+  echo "Submodules updated and changes pushed."
 else
-  echo "No updates found."
+  echo "No submodule updates found."
 fi
