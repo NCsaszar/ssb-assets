@@ -44,6 +44,7 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://branches-db:5432/branch_service_db
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
+      - SECRET_KEY=UiynOe89DRPIBdPzuyiQ90FN4skkGOkGUO+aqW8ks3c=
     networks:
       - ssb-network
 
