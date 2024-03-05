@@ -14,9 +14,6 @@ if [[ `git status --porcelain` ]]; then
   # Commit the updates
   git commit -m "Updated submodules to the latest commits"
 
-  # Push the updates to the remote repository
-  git push
-
   echo "Submodules updated and changes pushed."
 else
   echo "No submodule updates found."
