@@ -23,6 +23,8 @@ git submodule update --init --recursive
 Navigate to the root directory and run the following command to
 build and start all services:
 ```docker-compose up```
+or if you made changes to images:
+```docker-compose up --build```
 
 ### 3. Updating Submodules
 
