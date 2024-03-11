@@ -7,7 +7,7 @@ services:
       context: ./services/admin-portal
       dockerfile: Dockerfile.dev
     volumes:
-      - .:/app
+      - ./services/admin-portal:/app
       - /app/node_modules
     ports:
       - "4200:4200"
@@ -22,7 +22,7 @@ services:
       context: ./services/customer-portal
       dockerfile: Dockerfile.dev
     volumes:
-      - ./:/app
+      - ./services/customer-portal:/app
       - /app/node_modules
     environment:
       - NODE_ENV=development
@@ -33,6 +33,7 @@ services:
       - '5173:5173'
   # Gateway container
   api-gateway:
+    container_name: api-gateway
     build: ./services/api-gateway
     environment:
       - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
@@ -44,6 +45,7 @@ services:
       - ssb-network
   # Eureka container
   eureka-server:
+    container_name: eureka-server
     build: ./services/eureka-server
     ports:
       - "8761:8761"
@@ -51,6 +53,7 @@ services:
       - ssb-network
   # Accounts-transactions container
   accounts-transactions:
+    container_name: accounts-transactions
     build: ./services/accounts-transactions/accounts-service
     ports:
       - "8090:8090"
@@ -67,6 +70,7 @@ services:
       - ssb-network
   # Branches container
   branches:
+    container_name: branches
     build: ./services/branches
     ports:
       - "8060:8060"
@@ -84,6 +88,7 @@ services:
       - ssb-network
   # Users container
   users:
+    container_name: users
     build: ./services/user-service
     ports:
       - "8085:8085"
@@ -96,11 +101,13 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://users-db:5432/users_service_db
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
+      - HOST_NAME=localhost
       - SECRET_KEY=UiynOe89DRPIBdPzuyiQ90FN4skkGOkGUO+aqW8ks3c=
     networks:
       - ssb-network
   # Cards/Loans container
   cards-loans:
+    container_name: cards-loans
     build: ./services/cards-loans
     ports:
       - "8070:8070"
@@ -118,6 +125,7 @@ services:
       - ssb-network
 
   users-db:
+    container_name: users-db
     image: postgres:latest
     environment:
       POSTGRES_DB: users_service_db
@@ -130,6 +138,7 @@ services:
       - ssb-network
 
   cards-loans-db:
+    container_name: cards-loans-db
     image: postgres:latest
     environment:
       POSTGRES_DB: cards_loans_db
@@ -142,6 +151,7 @@ services:
       - ssb-network
 
   branches-db:
+    container_name: branches-db
     image: postgres:latest
     environment:
       POSTGRES_DB: branch_service_db
@@ -154,6 +164,7 @@ services:
       - ssb-network
 
   accounts-db:
+    container_name: accounts-db
     image: postgres:latest
     environment:
       POSTGRES_DB: AccountsService

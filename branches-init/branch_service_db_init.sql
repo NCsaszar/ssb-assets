@@ -5,31 +5,7 @@
 -- Dumped from database version 16.1
 -- Dumped by pg_dump version 16.0
 
--- Started on 2024-03-05 14:38:11
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
-DROP DATABASE IF EXISTS branch_service_db;
---
--- TOC entry 4352 (class 1262 OID 16411)
--- Name: branch_service_db; Type: DATABASE; Schema: -; Owner: branchservice
---
-
-CREATE DATABASE branch_service_db WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'en_US.UTF-8';
-
-
-ALTER DATABASE branch_service_db OWNER TO branchservice;
-
-\connect branch_service_db
+-- Started on 2024-03-05 16:04:17
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -84,7 +60,7 @@ CREATE SEQUENCE public.appointment_appointment_id_seq
 ALTER SEQUENCE public.appointment_appointment_id_seq OWNER TO branchservice;
 
 --
--- TOC entry 4353 (class 0 OID 0)
+-- TOC entry 4352 (class 0 OID 0)
 -- Dependencies: 215
 -- Name: appointment_appointment_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: branchservice
 --
@@ -129,7 +105,7 @@ CREATE SEQUENCE public.banker_banker_id_seq
 ALTER SEQUENCE public.banker_banker_id_seq OWNER TO branchservice;
 
 --
--- TOC entry 4354 (class 0 OID 0)
+-- TOC entry 4353 (class 0 OID 0)
 -- Dependencies: 217
 -- Name: banker_banker_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: branchservice
 --
@@ -181,7 +157,7 @@ CREATE SEQUENCE public.branch_branch_id_seq
 ALTER SEQUENCE public.branch_branch_id_seq OWNER TO branchservice;
 
 --
--- TOC entry 4355 (class 0 OID 0)
+-- TOC entry 4354 (class 0 OID 0)
 -- Dependencies: 219
 -- Name: branch_branch_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: branchservice
 --
@@ -234,7 +210,7 @@ CREATE SEQUENCE public.queue_queue_id_seq
 ALTER SEQUENCE public.queue_queue_id_seq OWNER TO branchservice;
 
 --
--- TOC entry 4356 (class 0 OID 0)
+-- TOC entry 4355 (class 0 OID 0)
 -- Dependencies: 222
 -- Name: queue_queue_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: branchservice
 --
@@ -273,7 +249,7 @@ CREATE SEQUENCE public."serviceType_service_id_seq"
 ALTER SEQUENCE public."serviceType_service_id_seq" OWNER TO branchservice;
 
 --
--- TOC entry 4357 (class 0 OID 0)
+-- TOC entry 4356 (class 0 OID 0)
 -- Dependencies: 226
 -- Name: serviceType_service_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: branchservice
 --
@@ -298,7 +274,7 @@ CREATE SEQUENCE public.service_type_service_id_seq
 ALTER SEQUENCE public.service_type_service_id_seq OWNER TO branchservice;
 
 --
--- TOC entry 4358 (class 0 OID 0)
+-- TOC entry 4357 (class 0 OID 0)
 -- Dependencies: 224
 -- Name: service_type_service_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: branchservice
 --
@@ -416,7 +392,7 @@ INSERT INTO public.service_type (service_id, description, service_type_name) VAL
 
 
 --
--- TOC entry 4359 (class 0 OID 0)
+-- TOC entry 4358 (class 0 OID 0)
 -- Dependencies: 215
 -- Name: appointment_appointment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: branchservice
 --
@@ -425,7 +401,7 @@ SELECT pg_catalog.setval('public.appointment_appointment_id_seq', 35, true);
 
 
 --
--- TOC entry 4360 (class 0 OID 0)
+-- TOC entry 4359 (class 0 OID 0)
 -- Dependencies: 217
 -- Name: banker_banker_id_seq; Type: SEQUENCE SET; Schema: public; Owner: branchservice
 --
@@ -434,7 +410,7 @@ SELECT pg_catalog.setval('public.banker_banker_id_seq', 1, false);
 
 
 --
--- TOC entry 4361 (class 0 OID 0)
+-- TOC entry 4360 (class 0 OID 0)
 -- Dependencies: 219
 -- Name: branch_branch_id_seq; Type: SEQUENCE SET; Schema: public; Owner: branchservice
 --
@@ -443,7 +419,7 @@ SELECT pg_catalog.setval('public.branch_branch_id_seq', 16, true);
 
 
 --
--- TOC entry 4362 (class 0 OID 0)
+-- TOC entry 4361 (class 0 OID 0)
 -- Dependencies: 222
 -- Name: queue_queue_id_seq; Type: SEQUENCE SET; Schema: public; Owner: branchservice
 --
@@ -452,7 +428,7 @@ SELECT pg_catalog.setval('public.queue_queue_id_seq', 1, false);
 
 
 --
--- TOC entry 4363 (class 0 OID 0)
+-- TOC entry 4362 (class 0 OID 0)
 -- Dependencies: 226
 -- Name: serviceType_service_id_seq; Type: SEQUENCE SET; Schema: public; Owner: branchservice
 --
@@ -461,7 +437,7 @@ SELECT pg_catalog.setval('public."serviceType_service_id_seq"', 1, false);
 
 
 --
--- TOC entry 4364 (class 0 OID 0)
+-- TOC entry 4363 (class 0 OID 0)
 -- Dependencies: 224
 -- Name: service_type_service_id_seq; Type: SEQUENCE SET; Schema: public; Owner: branchservice
 --
@@ -622,7 +598,7 @@ ALTER TABLE ONLY public.queue
     ADD CONSTRAINT queue_branch_id_fkey FOREIGN KEY (branch_id) REFERENCES public.branch(branch_id) NOT VALID;
 
 
--- Completed on 2024-03-05 14:38:15
+-- Completed on 2024-03-05 16:04:21
 
 --
 -- PostgreSQL database dump complete
