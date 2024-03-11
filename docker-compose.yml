@@ -1,5 +1,37 @@
 version: '3.8'
 services:
+  # Admin portal
+  angular-portal:
+    container_name: angular-portal
+    build:
+      context: ./services/admin-portal
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "4200:4200"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - api-gateway
+  # Customer portal
+  react-portal:
+    container_name: react-portal
+    build:
+      context: ./services/customer-portal
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - api-gateway
+    ports:
+      - '5173:5173'
+  # Gateway container
   api-gateway:
     build: ./services/api-gateway
     environment:
@@ -10,12 +42,14 @@ services:
       - eureka-server
     networks:
       - ssb-network
+  # Eureka container
   eureka-server:
     build: ./services/eureka-server
     ports:
       - "8761:8761"
     networks:
       - ssb-network
+  # Accounts-transactions container
   accounts-transactions:
     build: ./services/accounts-transactions/accounts-service
     ports:
@@ -31,6 +65,7 @@ services:
       - SPRING_DATASOURCE_PASSWORD=9557
     networks:
       - ssb-network
+  # Branches container
   branches:
     build: ./services/branches
     ports:
@@ -43,8 +78,66 @@ services:
       - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
       - SPRING_DATASOURCE_URL=jdbc:postgresql://branches-db:5432/branch_service_db
       - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=postgresq
+      - SPRING_DATASOURCE_PASSWORD=postgres
       - SECRET_KEY=UiynOe89DRPIBdPzuyiQ90FN4skkGOkGUO+aqW8ks3c=
+    networks:
+      - ssb-network
+  # Users container
+  users:
+    build: ./services/user-service
+    ports:
+      - "8085:8085"
+    depends_on:
+      - eureka-server
+      - api-gateway
+      - users-db
+    environment:
+      - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://users-db:5432/users_service_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SECRET_KEY=UiynOe89DRPIBdPzuyiQ90FN4skkGOkGUO+aqW8ks3c=
+    networks:
+      - ssb-network
+  # Cards/Loans container
+  cards-loans:
+    build: ./services/cards-loans
+    ports:
+      - "8070:8070"
+    depends_on:
+      - eureka-server
+      - api-gateway
+      - cards-loans-db
+    environment:
+      - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://cards-loans-db:5432/cards_loans_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SECRET_KEY=UiynOe89DRPIBdPzuyiQ90FN4skkGOkGUO+aqW8ks3c=
+    networks:
+      - ssb-network
+
+  users-db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: users_service_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - users-db-data:/var/lib/postgresql/data
+      - ./user-service-init:/docker-entrypoint-initdb.d
+    networks:
+      - ssb-network
+
+  cards-loans-db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: cards_loans_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - cards-loans-db-data:/var/lib/postgresql/data
+      - ./cards-loans-init:/docker-entrypoint-initdb.d
     networks:
       - ssb-network
 
@@ -75,6 +168,8 @@ services:
 volumes:
   accounts-db-data:
   branches-db-data:
+  users-db-data:
+  cards-loans-db-data:
 
 networks:
   ssb-network:
