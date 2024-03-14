@@ -25,6 +25,10 @@ build and start all services:
 ```docker-compose up```
 or if you made changes to images:
 ```docker-compose up --build```
+# Running the containers in detached mode:
+```bash
+docker-compose up -d
+```
 
 ### 3. Updating Submodules
 

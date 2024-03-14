@@ -8,7 +8,7 @@ services:
       dockerfile: Dockerfile.dev
     volumes:
       - ./services/admin-portal:/app
-      - /app/node_modules
+      - angular-node-modules:/app/node_modules
     ports:
       - "4200:4200"
     environment:
@@ -23,7 +23,7 @@ services:
       dockerfile: Dockerfile.dev
     volumes:
       - ./services/customer-portal:/app
-      - /app/node_modules
+      - react-node-modules:/app/node_modules
     environment:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
@@ -37,20 +37,17 @@ services:
     build: ./services/api-gateway
     environment:
       - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
+      - JAVA_OPTS=-Xmx512m -Xms256m
     ports:
       - "8765:8765"
     depends_on:
       - eureka-server
-    networks:
-      - ssb-network
   # Eureka container
   eureka-server:
     container_name: eureka-server
     build: ./services/eureka-server
     ports:
       - "8761:8761"
-    networks:
-      - ssb-network
   # Accounts-transactions container
   accounts-transactions:
     container_name: accounts-transactions
@@ -65,9 +62,8 @@ services:
       - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
       - SPRING_DATASOURCE_URL=jdbc:postgresql://accounts-db:5432/AccountsService
       - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=9557
-    networks:
-      - ssb-network
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - JAVA_OPTS=-Xmx512m -Xms256m
   # Branches container
   branches:
     container_name: branches
@@ -84,8 +80,7 @@ services:
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
       - SECRET_KEY=UiynOe89DRPIBdPzuyiQ90FN4skkGOkGUO+aqW8ks3c=
-    networks:
-      - ssb-network
+      - JAVA_OPTS=-Xmx512m -Xms256m
   # Users container
   users:
     container_name: users
@@ -102,8 +97,7 @@ services:
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
       - SECRET_KEY=UiynOe89DRPIBdPzuyiQ90FN4skkGOkGUO+aqW8ks3c=
-    networks:
-      - ssb-network
+      - JAVA_OPTS=-Xmx512m -Xms256m
   # Cards/Loans container
   cards-loans:
     container_name: cards-loans
@@ -120,8 +114,7 @@ services:
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
       - SECRET_KEY=UiynOe89DRPIBdPzuyiQ90FN4skkGOkGUO+aqW8ks3c=
-    networks:
-      - ssb-network
+      - JAVA_OPTS=-Xmx512m -Xms256m
 
   users-db:
     container_name: users-db
@@ -133,8 +126,6 @@ services:
     volumes:
       - users-db-data:/var/lib/postgresql/data
       - ./user-service-init:/docker-entrypoint-initdb.d
-    networks:
-      - ssb-network
 
   cards-loans-db:
     container_name: cards-loans-db
@@ -146,8 +137,6 @@ services:
     volumes:
       - cards-loans-db-data:/var/lib/postgresql/data
       - ./cards-loans-init:/docker-entrypoint-initdb.d
-    networks:
-      - ssb-network
 
   branches-db:
     container_name: branches-db
@@ -159,8 +148,6 @@ services:
     volumes:
       - branches-db-data:/var/lib/postgresql/data
       - ./branches-init:/docker-entrypoint-initdb.d
-    networks:
-      - ssb-network
 
   accounts-db:
     container_name: accounts-db
@@ -168,19 +155,21 @@ services:
     environment:
       POSTGRES_DB: AccountsService
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 9557
+      POSTGRES_PASSWORD: postgres
     volumes:
      - accounts-db-data:/var/lib/postgresql/data
      - ./accounts-transactions-init:/docker-entrypoint-initdb.d
-    networks:
-     - ssb-network
+
 
 volumes:
   accounts-db-data:
   branches-db-data:
   users-db-data:
   cards-loans-db-data:
+  angular-node-modules:
+  react-node-modules:
 
 networks:
-  ssb-network:
+  default:
+    name: ssb-network
     driver: bridge
