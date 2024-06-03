@@ -91,6 +91,8 @@ services:
       - eureka-server
       - api-gateway
       - users-db
+    volumes:
+      - ~/.aws:/root/.aws
     environment:
       - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
       - SPRING_DATASOURCE_URL=jdbc:postgresql://users-db:5432/users_service_db
