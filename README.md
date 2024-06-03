@@ -15,6 +15,9 @@ git clone --recurse-submodules <repository-url>
 If you cloned without `--recurse-submodules` run the following commands:
 ```bash
 cd centralized-docker-compose
+```
+-This command will initialize all the submodules
+```bash
 git submodule update --init --recursive
 ```
 
@@ -22,10 +25,14 @@ git submodule update --init --recursive
 ### 2. Running the docker-compose
 Navigate to the root directory and run the following command to
 build and start all services:
-```docker-compose up```
+```bash 
+docker-compose up
+```
 or if you made changes to images:
-```docker-compose up --build```
-# Running the containers in detached mode:
+```
+docker-compose up --build
+```
+### Running the containers in detached mode:
 ```bash
 docker-compose up -d
 ```
@@ -38,6 +45,11 @@ git submodule update --remote --merge
 ###4. How to get a fresh build of all modules
 ```bash
 docker-compose build --no-cache
+```
+
+###5. Rebuilding a specific service only
+```bash
+docker-compose build --no-cache <service-name>
 ```
 
 

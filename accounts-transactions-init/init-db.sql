@@ -40,8 +40,10 @@ ALTER TABLE IF EXISTS public."transactions"
 -- Insert into Accounts
 INSERT INTO public."accounts" (account_number, user_id, account_type, balance, amount_owed, credit_limit, created_at, updated_at) 
 VALUES
-('938431706484704999065020441', 3, 'CHECKING', 100.00, 0.0, 0.0, NOW()-INTERVAL '105 DAY', NOW()),  -- Mock checking account for user 3
-('938431706484704999065020449', 3, 'SAVINGS', 500.00, 0.0, 0.0, NOW()-INTERVAL '105 DAY', NOW());  -- Mock savings account for user 3
+('938431706484704999065020441', 2, 'CHECKING', 100.00, 0.0, 0.0, NOW()-INTERVAL '105 DAY', NOW()),  -- Mock checking
+account for user 3
+('938431706484704999065020449', 2, 'SAVINGS', 500.00, 0.0, 0.0, NOW()-INTERVAL '105 DAY', NOW());  -- Mock savings
+account for user 3
 
 -- Insert into Transactions
 -- Initial Deposit

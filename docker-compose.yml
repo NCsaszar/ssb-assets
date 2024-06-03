@@ -65,22 +65,22 @@ services:
       - SPRING_DATASOURCE_PASSWORD=postgres
       - JAVA_OPTS=-Xmx512m -Xms256m
   # Branches container
-  branches:
-    container_name: branches
-    build: ./services/branches
-    ports:
-      - "8060:8060"
-    depends_on:
-      - eureka-server
-      - api-gateway
-      - branches-db
-    environment:
-      - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://branches-db:5432/branch_service_db
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=postgres
-      - SECRET_KEY=UiynOe89DRPIBdPzuyiQ90FN4skkGOkGUO+aqW8ks3c=
-      - JAVA_OPTS=-Xmx512m -Xms256m
+#  branches:
+#    container_name: branches
+#    build: ./services/branches
+#    ports:
+#      - "8060:8060"
+#    depends_on:
+#      - eureka-server
+#      - api-gateway
+#      - branches-db
+#    environment:
+#      - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://branches-db:5432/branch_service_db
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=postgres
+#      - SECRET_KEY=UiynOe89DRPIBdPzuyiQ90FN4skkGOkGUO+aqW8ks3c=
+#      - JAVA_OPTS=-Xmx512m -Xms256m
   # Users container
   users:
     container_name: users
@@ -99,22 +99,22 @@ services:
       - SECRET_KEY=UiynOe89DRPIBdPzuyiQ90FN4skkGOkGUO+aqW8ks3c=
       - JAVA_OPTS=-Xmx512m -Xms256m
   # Cards/Loans container
-  cards-loans:
-    container_name: cards-loans
-    build: ./services/cards-loans
-    ports:
-      - "8070:8070"
-    depends_on:
-      - eureka-server
-      - api-gateway
-      - cards-loans-db
-    environment:
-      - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://cards-loans-db:5432/cards_loans_db
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=postgres
-      - SECRET_KEY=UiynOe89DRPIBdPzuyiQ90FN4skkGOkGUO+aqW8ks3c=
-      - JAVA_OPTS=-Xmx512m -Xms256m
+#  cards-loans:
+#    container_name: cards-loans
+#    build: ./services/cards-loans
+#    ports:
+#      - "8070:8070"
+#    depends_on:
+#      - eureka-server
+#      - api-gateway
+#      - cards-loans-db
+#    environment:
+#      - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://cards-loans-db:5432/cards_loans_db
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=postgres
+#      - SECRET_KEY=UiynOe89DRPIBdPzuyiQ90FN4skkGOkGUO+aqW8ks3c=
+#      - JAVA_OPTS=-Xmx512m -Xms256m
 
   users-db:
     container_name: users-db
@@ -127,27 +127,27 @@ services:
       - users-db-data:/var/lib/postgresql/data
       - ./user-service-init:/docker-entrypoint-initdb.d
 
-  cards-loans-db:
-    container_name: cards-loans-db
-    image: postgres:latest
-    environment:
-      POSTGRES_DB: cards_loans_db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-    volumes:
-      - cards-loans-db-data:/var/lib/postgresql/data
-      - ./cards-loans-init:/docker-entrypoint-initdb.d
+#  cards-loans-db:
+#    container_name: cards-loans-db
+#    image: postgres:latest
+#    environment:
+#      POSTGRES_DB: cards_loans_db
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: postgres
+#    volumes:
+#      - cards-loans-db-data:/var/lib/postgresql/data
+#      - ./cards-loans-init:/docker-entrypoint-initdb.d
 
-  branches-db:
-    container_name: branches-db
-    image: postgres:latest
-    environment:
-      POSTGRES_DB: branch_service_db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-    volumes:
-      - branches-db-data:/var/lib/postgresql/data
-      - ./branches-init:/docker-entrypoint-initdb.d
+#  branches-db:
+#    container_name: branches-db
+#    image: postgres:latest
+#    environment:
+#      POSTGRES_DB: branch_service_db
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: postgres
+#    volumes:
+#      - branches-db-data:/var/lib/postgresql/data
+#      - ./branches-init:/docker-entrypoint-initdb.d
 
   accounts-db:
     container_name: accounts-db
