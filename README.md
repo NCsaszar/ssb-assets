@@ -35,6 +35,10 @@ docker-compose up -d
 ```bash
 git submodule update --remote --merge
 ```
+###4. How to get a fresh build of all modules
+```bash
+docker-compose build --no-cache
+```
 
 
 # Contributers
