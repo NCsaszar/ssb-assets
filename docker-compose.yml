@@ -50,6 +50,8 @@ services:
       - "8761:8761"
   # Accounts-transactions container
   accounts-transactions:
+    volumes:
+      - ~/.aws:/root/.aws
     container_name: accounts-transactions
     build: ./services/accounts-transactions/accounts-service
     ports:

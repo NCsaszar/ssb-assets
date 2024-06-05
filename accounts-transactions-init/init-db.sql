@@ -1,49 +1,78 @@
 BEGIN;
-DROP TABLE IF EXISTS public."transactions";
-DROP TABLE IF EXISTS public."accounts";
 
-CREATE TABLE IF NOT EXISTS public."accounts"
+CREATE TABLE IF NOT EXISTS public.account_programs
+(
+    program_id serial NOT NULL,
+    account_type character varying COLLATE pg_catalog."default" NOT NULL,
+    program_name character varying COLLATE pg_catalog."default" NOT NULL,
+    monthly_fee double precision DEFAULT 0,
+    apy double precision DEFAULT 0,
+    cash_back double precision DEFAULT 0,
+    rewards_type character varying COLLATE pg_catalog."default",
+    CONSTRAINT "AccountProgram_pkey" PRIMARY KEY (program_id)
+);
+
+CREATE TABLE IF NOT EXISTS public.accounts
 (
     account_id serial NOT NULL,
     user_id integer NOT NULL,
-	account_number character varying NOT NULL UNIQUE,
-     account_type character varying NOT NULL,
+    account_number character varying COLLATE pg_catalog."default" NOT NULL,
+    account_type character varying COLLATE pg_catalog."default" NOT NULL,
+	program_id integer NOT NULL,
     balance double precision NOT NULL,
-	credit_limit double precision DEFAULT 0,
+    credit_limit double precision DEFAULT 0,
     amount_owed double precision DEFAULT 0,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone,
-	is_active boolean DEFAULT true,
-    CONSTRAINT "Account_pkey" PRIMARY KEY (account_id)
+    is_active boolean DEFAULT true,
+    CONSTRAINT "Account_pkey" PRIMARY KEY (account_id),
+    CONSTRAINT accounts_account_number_key UNIQUE (account_number),
+	CONSTRAINT program_id FOREIGN KEY (program_id)
+    REFERENCES public.account_programs (program_id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+
 );
 
-CREATE TABLE IF NOT EXISTS public."transactions"
+CREATE TABLE IF NOT EXISTS public.transactions
 (
     transaction_id serial NOT NULL,
     account_id integer NOT NULL,
-    transaction_type character varying NOT NULL,
+    transaction_type character varying COLLATE pg_catalog."default" NOT NULL,
     amount double precision NOT NULL,
     date_time timestamp without time zone NOT NULL,
-    description character varying,
-	closing_balance double precision NOT NULL,
+    description character varying COLLATE pg_catalog."default",
+    closing_balance double precision NOT NULL,
     is_credit boolean NOT NULL,
     CONSTRAINT "Transaction_pkey" PRIMARY KEY (transaction_id)
 );
 
-ALTER TABLE IF EXISTS public."transactions"
+ALTER TABLE IF EXISTS public.transactions
     ADD CONSTRAINT account_id FOREIGN KEY (account_id)
-    REFERENCES public."accounts" (account_id) MATCH SIMPLE
+    REFERENCES public.accounts (account_id) MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
-
+	
+-- Insert into account_programs
+INSERT INTO public.account_programs (account_type, program_name, monthly_fee, apy, cash_back, rewards_type) VALUES
+('CHECKING', '$0 Monthly Fee Checking', 0, 0, 0, NULL),
+('CHECKING', '1% APY Checking', 5, 1, 0, NULL),
+('CHECKING', 'Cash Back Checking', 10, 0, 1, 'Cash Back'),
+('SAVINGS', 'Standard Savings', 0, 0.5, 0, NULL),
+('SAVINGS', 'High Yield Savings', 0, 2, 0, NULL),
+('CREDIT', 'Travel Rewards Credit', 0, 0, 0, 'Travel Points'),
+('CREDIT', 'Cash Back Credit', 0, 0, 1.5, 'Cash Back'),
+('LOAN', 'Personal Loan', 0, 0, 0, NULL),
+('LOAN', 'Mortgage Loan', 0, 0, 0, NULL);
+	
 -- Insert into Accounts
-INSERT INTO public."accounts" (account_number, user_id, account_type, balance, amount_owed, credit_limit, created_at, updated_at) 
+INSERT INTO public."accounts" (account_number, user_id, account_type, program_id, balance, amount_owed, credit_limit, created_at, updated_at) 
 VALUES
-('938431706484704999065020441', 2, 'CHECKING', 100.00, 0.0, 0.0, NOW()-INTERVAL '105 DAY', NOW()),  -- Mock checking
-account for user 3
-('938431706484704999065020449', 2, 'SAVINGS', 500.00, 0.0, 0.0, NOW()-INTERVAL '105 DAY', NOW());  -- Mock savings
-account for user 3
+('938431706484704999065020441', 1, 'CHECKING', 1, 100.00, 0.0, 0.0, NOW()-INTERVAL '105 DAY', NOW()),
+-- Mock checking account for user 1
+('938431706484704999065020449', 1, 'SAVINGS', 4, 500.00, 0.0, 0.0, NOW()-INTERVAL '105 DAY', NOW());
+-- Mock savings account for user 1
 
 -- Insert into Transactions
 -- Initial Deposit
@@ -90,6 +119,5 @@ BEGIN
     SET balance = current_balance
     WHERE account_id = 1;
 END $$;
-
 
 END;
