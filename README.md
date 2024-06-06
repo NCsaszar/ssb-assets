@@ -38,7 +38,7 @@ docker-compose up -d
 ```
 
 ### 3. Updating Submodules
-- This will update all submodules to their lastest commits on their watched branches
+- This will update all submodules to their latest commits on their watched branches
 ```bash
 git submodule update --remote --merge
 ```
