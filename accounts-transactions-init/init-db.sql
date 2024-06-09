@@ -118,6 +118,15 @@ BEGIN
     UPDATE public."accounts"
     SET balance = current_balance
     WHERE account_id = 1;
+
+    -- Insert fraudulent transaction
+    INSERT INTO public.transactions (account_id, transaction_type, amount, date_time, description, closing_balance, is_credit)
+    VALUES (1, 'WITHDRAWAL', 15.00, NOW(), 'ScamsAreMyJam.com', current_balance - 15.00, true);
+
+    -- Update the balance after fraudulent transaction
+    UPDATE public.accounts
+    SET balance = balance - 15.00
+    WHERE account_id = 1;
 END $$;
 
 END;
