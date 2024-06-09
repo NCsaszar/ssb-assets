@@ -100,7 +100,6 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://users-db:5432/users_service_db
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
-      - SECRET_KEY=UiynOe89DRPIBdPzuyiQ90FN4skkGOkGUO+aqW8ks3c=
       - JAVA_OPTS=-Xmx512m -Xms256m
   # Cards/Loans container
 #  cards-loans:
