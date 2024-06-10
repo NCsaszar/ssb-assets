@@ -80,7 +80,6 @@ INSERT INTO public."transactions" ("account_id", transaction_type, amount, date_
 VALUES
 (1, 'DEPOSIT', 100.00, NOW() - INTERVAL '105 DAY', 'Initial deposit into Checking', 100.00, false),
 (2, 'DEPOSIT', 500.00, NOW() - INTERVAL '105 DAY', 'Initial deposit into Savings', 500.00, false),
-(2, 'WITHDRAWAL', 10.00, NOW() - INTERVAL '104 DAY', 'Standard Withdrawal', 490.00, true);
 
 DO $$
 DECLARE 
