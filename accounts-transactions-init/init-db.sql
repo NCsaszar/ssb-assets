@@ -31,7 +31,6 @@ CREATE TABLE IF NOT EXISTS public.accounts
     REFERENCES public.account_programs (program_id) MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
-
 );
 
 CREATE TABLE IF NOT EXISTS public.transactions
@@ -53,7 +52,7 @@ ALTER TABLE IF EXISTS public.transactions
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
-	
+
 -- Insert into account_programs
 INSERT INTO public.account_programs (account_type, program_name, monthly_fee, apy, cash_back, rewards_type) VALUES
 ('CHECKING', '$0 Monthly Fee Checking', 0, 0, 0, NULL),
@@ -65,24 +64,23 @@ INSERT INTO public.account_programs (account_type, program_name, monthly_fee, ap
 ('CREDIT', 'Cash Back Credit', 0, 0, 1.5, 'Cash Back'),
 ('LOAN', 'Personal Loan', 0, 0, 0, NULL),
 ('LOAN', 'Mortgage Loan', 0, 0, 0, NULL);
-	
--- Insert into Accounts
-INSERT INTO public."accounts" (account_number, user_id, account_type, program_id, balance, amount_owed, credit_limit, created_at, updated_at) 
-VALUES
-('938431706484704999065020441', 1, 'CHECKING', 1, 100.00, 0.0, 0.0, NOW()-INTERVAL '105 DAY', NOW()),
--- Mock checking account for user 1
-('938431706484704999065020449', 1, 'SAVINGS', 4, 500.00, 0.0, 0.0, NOW()-INTERVAL '105 DAY', NOW());
--- Mock savings account for user 1
 
--- Insert into Transactions
+-- Insert into accounts
+INSERT INTO public.accounts (account_number, user_id, account_type, program_id, balance, amount_owed, credit_limit, created_at, updated_at)
+VALUES
+('938431706484704999065020441', 1, 'CHECKING', 1, 100.00, 0.0, 0.0, NOW() - INTERVAL '105 DAY', NOW()),
+('938431706484704999065020449', 1, 'SAVINGS', 4, 500.00, 0.0, 0.0, NOW() - INTERVAL '105 DAY', NOW());
+
+-- Insert into transactions
 -- Initial Deposit
-INSERT INTO public."transactions" ("account_id", transaction_type, amount, date_time, description, closing_balance, is_credit) 
+INSERT INTO public.transactions (account_id, transaction_type, amount, date_time, description, closing_balance, is_credit)
 VALUES
 (1, 'DEPOSIT', 100.00, NOW() - INTERVAL '105 DAY', 'Initial deposit into Checking', 100.00, false),
-(2, 'DEPOSIT', 500.00, NOW() - INTERVAL '105 DAY', 'Initial deposit into Savings', 500.00, false),
+(2, 'DEPOSIT', 500.00, NOW() - INTERVAL '105 DAY', 'Initial deposit into Savings', 500.00, false);
 
+-- Procedural code to generate random transactions
 DO $$
-DECLARE 
+DECLARE
     current_balance double precision := 100.00;
     transaction_amount double precision;
     transaction_type int;
@@ -103,18 +101,18 @@ BEGIN
             CONTINUE;
         END IF;
 
-        INSERT INTO public."transactions" ("account_id", transaction_type, amount, date_time, description, closing_balance, is_credit)
-        VALUES (1, 
-                CASE WHEN transaction_type = 0 THEN 'DEPOSIT' WHEN transaction_type = 1 THEN 'WITHDRAWAL' ELSE 'PAYMENT' END, 
-                transaction_amount, 
-                NOW() - (105 - i || ' DAY')::interval, 
-                CASE WHEN transaction_type = 0 THEN 'Random Deposit' WHEN transaction_type = 1 THEN 'Random Withdrawal' ELSE 'Random Payment' END, 
-                current_balance, 
+        INSERT INTO public.transactions (account_id, transaction_type, amount, date_time, description, closing_balance, is_credit)
+        VALUES (1,
+                CASE WHEN transaction_type = 0 THEN 'DEPOSIT' WHEN transaction_type = 1 THEN 'WITHDRAWAL' ELSE 'PAYMENT' END,
+                transaction_amount,
+                NOW() - (105 - i || ' DAY')::interval,
+                CASE WHEN transaction_type = 0 THEN 'Random Deposit' WHEN transaction_type = 1 THEN 'Random Withdrawal' ELSE 'Random Payment' END,
+                current_balance,
                 transaction_type != 0);
     END LOOP;
 
     -- Update the final balance in the accounts table
-    UPDATE public."accounts"
+    UPDATE public.accounts
     SET balance = current_balance
     WHERE account_id = 1;
 
@@ -128,4 +126,4 @@ BEGIN
     WHERE account_id = 1;
 END $$;
 
-END;
+COMMIT;

@@ -24,7 +24,9 @@ CREATE TABLE IF NOT EXISTS public.app_user (
 
 INSERT INTO public.app_user (username, password, email, first_name, last_name, is_verified, is_active, date_created, date_modified, date_of_birth, phone_number, address, secret_question, secret_answer, role, failed_login_attempts)
 VALUES
-    ('user3', '$2a$10$eEgz5Q3U8Bxz13oLBZHzrukHZ6mJpTAUOuMdPPIkhPglJ806luJ16', 'user3@example.com', 'John', 'Doe', true, true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '1995-03-15', 5555555555, '123 Main St', 'What is your favorite color?', 'Blue', 'CUSTOMER', 0),
+    ('Dante', '$2a$10$eEgz5Q3U8Bxz13oLBZHzrukHZ6mJpTAUOuMdPPIkhPglJ806luJ16', 'user3@example.com', 'Dante', 'Doe', true,
+
+    true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '1995-03-15', 5555555555, '123 Main St', 'What is your favorite color?', 'Blue', 'CUSTOMER', 0),
     ('Admin', '$2a$10$eEgz5Q3U8Bxz13oLBZHzrukHZ6mJpTAUOuMdPPIkhPglJ806luJ16', 'user4@example.com', 'Jane', 'Smith', true, true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '1988-08-25', 6666666666, '456 Elm St', 'What is your favorite movie?', 'Johnson', 'ADMIN', 0),
     ('user5', '$2a$10$eEgz5Q3U8Bxz13oLBZHzrukHZ6mJpTAUOuMdPPIkhPglJ806luJ16', 'user5@example.com', 'Michael', 'Brown', true, true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '1977-04-10', 7777777777, '789 Oak St', 'What is your favorite movie?', 'The Matrix', 'CUSTOMER', 0),
     ('user6', '$2a$10$eEgz5Q3U8Bxz13oLBZHzrukHZ6mJpTAUOuMdPPIkhPglJ806luJ16', 'user6@example.com', 'Emily', 'Wilson', true, true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '1992-12-05', 8888888888, '101 Pine St', 'What is your favorite food?', 'Pizza', 'CUSTOMER', 0),
