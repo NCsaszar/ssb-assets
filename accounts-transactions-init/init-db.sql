@@ -75,8 +75,8 @@ VALUES
 -- Initial Deposit
 INSERT INTO public.transactions (account_id, transaction_type, amount, date_time, description, closing_balance, is_credit)
 VALUES
-(1, 'DEPOSIT', 100.00, NOW() - INTERVAL '105 DAY', 'Initial deposit into Checking', 100.00, false),
-(2, 'DEPOSIT', 500.00, NOW() - INTERVAL '105 DAY', 'Initial deposit into Savings', 500.00, false);
+(1, 'DEPOSIT', 100.00, NOW() - INTERVAL '105 DAY', 'Initial deposit into Checking', 100.00, true),
+(2, 'DEPOSIT', 500.00, NOW() - INTERVAL '105 DAY', 'Initial deposit into Savings', 500.00, true);
 
 -- Procedural code to generate random transactions
 DO $$
@@ -108,7 +108,7 @@ BEGIN
                 NOW() - (105 - i || ' DAY')::interval,
                 CASE WHEN transaction_type = 0 THEN 'Random Deposit' WHEN transaction_type = 1 THEN 'Random Withdrawal' ELSE 'Random Payment' END,
                 current_balance,
-                transaction_type != 0);
+                CASE WHEN transaction_type = 0 THEN true WHEN transaction_type = 1 THEN false ELSE false END);
     END LOOP;
 
     -- Update the final balance in the accounts table
@@ -118,7 +118,7 @@ BEGIN
 
     -- Insert fraudulent transaction
     INSERT INTO public.transactions (account_id, transaction_type, amount, date_time, description, closing_balance, is_credit)
-    VALUES (1, 'WITHDRAWAL', 15.00, NOW(), 'ScamsAreMyJam.com', current_balance - 15.00, true);
+    VALUES (1, 'WITHDRAWAL', 15.00, NOW(), 'ScamsAreMyJam.com', current_balance - 15.00, false);
 
     -- Update the balance after fraudulent transaction
     UPDATE public.accounts

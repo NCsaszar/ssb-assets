@@ -56,43 +56,45 @@ services:
     build: ./services/accounts-transactions/accounts-service
     ports:
       - "8090:8090"
+      - "9090:9090"
     depends_on:
       - eureka-server
       - api-gateway
       - accounts-db
-      - nexus
+#      - nexus
     environment:
       - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
       - SPRING_DATASOURCE_URL=jdbc:postgresql://accounts-db:5432/AccountsService
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
-      - JAVA_OPTS=-Xmx512m -Xms256m
-      - MAVEN_OPTS=-Dhttp.proxyHost=host.docker.internal -Dhttp.proxyPort=8081
-  nexus:
-    image: sonatype/nexus3
-    container_name: nexus
-    ports:
-      - "8081:8081"
-    volumes:
-      - nexus-data:/nexus-data
-      - "C:/Users/excod/Desktop/nexus-backup:/nexus-data"
-  # Branches container
-#  branches:
-#    container_name: branches
-#    build: ./services/branches
+      - JAVA_OPTS=-Xmx512m -Xms256m -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9090 -Dcom.sun.management.jmxremote.rmi.port=9090 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=127.0.0.1
+#  nexus:
+#    image: sonatype/nexus3
+#    container_name: nexus
 #    ports:
-#      - "8060:8060"
-#    depends_on:
-#      - eureka-server
-#      - api-gateway
-#      - branches-db
-#    environment:
-#      - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
-#      - SPRING_DATASOURCE_URL=jdbc:postgresql://branches-db:5432/branch_service_db
-#      - SPRING_DATASOURCE_USERNAME=postgres
-#      - SPRING_DATASOURCE_PASSWORD=postgres
-#      - SECRET_KEY=UiynOe89DRPIBdPzuyiQ90FN4skkGOkGUO+aqW8ks3c=
-#      - JAVA_OPTS=-Xmx512m -Xms256m
+#      - "8081:8081"
+#    volumes:
+#      - nexus-data:/nexus-data
+#      - "C:/Users/excod/Desktop/nexus-backup:/nexus-data"
+  # Branches container
+  branches:
+    container_name: branches
+    volumes:
+      - ~/.aws:/root/.aws
+    build: ./services/branches
+    ports:
+      - "8060:8060"
+    depends_on:
+      - eureka-server
+      - api-gateway
+      - branches-db
+    environment:
+      - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://branches-db:5432/branch_service_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SECRET_KEY=UiynOe89DRPIBdPzuyiQ90FN4skkGOkGUO+aqW8ks3c=
+      - JAVA_OPTS=-Xmx512m -Xms256m
   # Users container
   users:
     container_name: users
@@ -112,22 +114,24 @@ services:
       - SPRING_DATASOURCE_PASSWORD=postgres
       - JAVA_OPTS=-Xmx512m -Xms256m
   # Cards/Loans container
-#  cards-loans:
-#    container_name: cards-loans
-#    build: ./services/cards-loans
-#    ports:
-#      - "8070:8070"
-#    depends_on:
-#      - eureka-server
-#      - api-gateway
-#      - cards-loans-db
-#    environment:
-#      - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
-#      - SPRING_DATASOURCE_URL=jdbc:postgresql://cards-loans-db:5432/cards_loans_db
-#      - SPRING_DATASOURCE_USERNAME=postgres
-#      - SPRING_DATASOURCE_PASSWORD=postgres
-#      - SECRET_KEY=UiynOe89DRPIBdPzuyiQ90FN4skkGOkGUO+aqW8ks3c=
-#      - JAVA_OPTS=-Xmx512m -Xms256m
+  cards-loans:
+    container_name: cards-loans
+    volumes:
+      - ~/.aws:/root/.aws
+    build: ./services/cards-loans
+    ports:
+      - "8070:8070"
+    depends_on:
+      - eureka-server
+      - api-gateway
+      - cards-loans-db
+    environment:
+      - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://cards-loans-db:5432/cards_loans_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SECRET_KEY=UiynOe89DRPIBdPzuyiQ90FN4skkGOkGUO+aqW8ks3c=
+      - JAVA_OPTS=-Xmx512m -Xms256m
 
   users-db:
     container_name: users-db
@@ -140,27 +144,27 @@ services:
       - users-db-data:/var/lib/postgresql/data
       - ./user-service-init:/docker-entrypoint-initdb.d
 
-#  cards-loans-db:
-#    container_name: cards-loans-db
-#    image: postgres:latest
-#    environment:
-#      POSTGRES_DB: cards_loans_db
-#      POSTGRES_USER: postgres
-#      POSTGRES_PASSWORD: postgres
-#    volumes:
-#      - cards-loans-db-data:/var/lib/postgresql/data
-#      - ./cards-loans-init:/docker-entrypoint-initdb.d
+  cards-loans-db:
+    container_name: cards-loans-db
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: cards_loans_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - cards-loans-db-data:/var/lib/postgresql/data
+      - ./cards-loans-init:/docker-entrypoint-initdb.d
 
-#  branches-db:
-#    container_name: branches-db
-#    image: postgres:latest
-#    environment:
-#      POSTGRES_DB: branch_service_db
-#      POSTGRES_USER: postgres
-#      POSTGRES_PASSWORD: postgres
-#    volumes:
-#      - branches-db-data:/var/lib/postgresql/data
-#      - ./branches-init:/docker-entrypoint-initdb.d
+  branches-db:
+    container_name: branches-db
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: branch_service_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - branches-db-data:/var/lib/postgresql/data
+      - ./branches-init:/docker-entrypoint-initdb.d
 
   accounts-db:
     container_name: accounts-db
@@ -181,7 +185,7 @@ volumes:
   cards-loans-db-data:
   angular-node-modules:
   react-node-modules:
-  nexus-data:
+#  nexus-data:
 
 networks:
   default:
