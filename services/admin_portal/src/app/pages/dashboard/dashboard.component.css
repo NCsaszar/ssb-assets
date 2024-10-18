@@ -1,0 +1,9 @@
+.card-body{
+    background-color: var(--contrast-darker);
+    border-radius: 4px;
+    color: ivory;
+}
+
+.chart-area{
+    min-height: 270px;
+}

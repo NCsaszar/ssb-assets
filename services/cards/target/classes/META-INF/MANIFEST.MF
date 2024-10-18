@@ -1,0 +1,63 @@
+Manifest-Version: 1.0
+Main-Class: com.SecureSentinel.CardsLoans.CardLoanStockApplication
+Class-Path: spring-boot-starter-tomcat-3.1.2.jar spring-data-jpa-3.1.2.j
+ ar spring-cloud-starter-netflix-eureka-client-4.0.2.jar swagger-core-ja
+ karta-2.2.9.jar stax2-api-4.2.1.jar jettison-1.4.0.jar istack-commons-r
+ untime-4.1.2.jar spring-tx-6.0.11.jar spring-security-crypto-6.1.2.jar 
+ reactor-core-3.5.8.jar reactive-streams-1.0.4.jar spring-boot-starter-d
+ ata-jpa-3.1.2.jar spring-context-6.0.11.jar tomcat-embed-websocket-10.1
+ .11.jar jakarta.activation-api-2.1.2.jar byte-buddy-1.14.5.jar eureka-c
+ lient-2.0.0.jar jboss-logging-3.5.3.Final.jar spring-boot-starter-valid
+ ation-3.1.2.jar bcutil-jdk15on-1.69.jar slf4j-api-2.0.7.jar jackson-cor
+ e-2.15.2.jar spring-security-rsa-1.0.11.RELEASE.jar spring-boot-actuato
+ r-autoconfigure-3.1.2.jar bcpkix-jdk15on-1.69.jar spring-aop-6.0.11.jar
+  tomcat-embed-el-10.1.11.jar woodstox-core-6.2.1.jar jandex-3.0.5.jar a
+ ngus-activation-2.0.1.jar logback-classic-1.4.8.jar servo-core-0.12.21.
+ jar spring-core-6.0.11.jar xstream-1.4.19.jar spring-beans-6.0.11.jar s
+ pring-orm-6.0.11.jar jackson-module-parameter-names-2.15.2.jar xmlpull-
+ 1.1.3.1.jar dexx-collections-0.2.jar spring-boot-starter-web-3.1.2.jar 
+ compactmap-2.0.jar jackson-databind-2.15.2.jar spring-boot-actuator-3.1
+ .2.jar spring-boot-starter-jdbc-3.1.2.jar log4j-to-slf4j-2.20.0.jar eur
+ eka-core-2.0.0.jar java-jwt-4.4.0.jar spring-cloud-loadbalancer-4.0.3.j
+ ar antlr4-runtime-4.10.1.jar swagger-ui-4.18.2.jar antlr-runtime-3.4.ja
+ r spring-cloud-starter-4.0.3.jar logback-core-1.4.8.jar spring-webmvc-6
+ .0.11.jar jakarta.inject-api-2.0.1.jar spring-boot-3.1.2.jar jackson-da
+ taformat-yaml-2.15.2.jar simpleclient_tracer_common-0.16.0.jar jaxb-run
+ time-4.0.3.jar spring-jdbc-6.0.11.jar spring-jcl-6.0.11.jar httpcore-4.
+ 4.16.jar HikariCP-5.0.1.jar commons-configuration-1.10.jar HdrHistogram
+ -2.1.12.jar spring-cloud-starter-loadbalancer-4.0.3.jar spring-context-
+ support-6.0.11.jar jjwt-impl-0.11.2.jar archaius-core-0.7.6.jar postgre
+ sql-42.6.0.jar mapstruct-1.5.5.Final.jar jsr305-3.0.2.jar tomcat-embed-
+ core-10.1.11.jar spring-boot-starter-logging-3.1.2.jar spring-boot-star
+ ter-actuator-3.1.2.jar commons-lang3-3.12.0.jar guava-16.0.jar httpcore
+ 5-5.2.2.jar spring-cloud-context-4.0.3.jar stringtemplate-3.2.1.jar spr
+ ing-expression-6.0.11.jar jakarta.persistence-api-3.1.0.jar jakarta.ann
+ otation-api-2.1.1.jar jackson-annotations-2.15.2.jar hibernate-validato
+ r-8.0.1.Final.jar micrometer-commons-1.11.2.jar httpclient-4.5.3.jar ht
+ tpcore5-h2-5.2.2.jar jakarta.ws.rs-api-3.1.0.jar jul-to-slf4j-2.0.7.jar
+  swagger-annotations-jakarta-2.2.9.jar simpleclient-0.16.0.jar bcprov-j
+ dk15on-1.69.jar aspectjweaver-1.9.19.jar springdoc-openapi-starter-webm
+ vc-api-2.1.0.jar hibernate-core-6.2.6.Final.jar antlr-2.7.7.jar checker
+ -qual-3.31.0.jar spring-security-core-6.1.2.jar classmate-1.5.1.jar spr
+ ing-cloud-commons-4.0.3.jar spring-boot-starter-cache-3.1.2.jar netflix
+ -infix-0.3.0.jar spring-boot-autoconfigure-3.1.2.jar simpleclient_trace
+ r_otel-0.16.0.jar spring-boot-starter-aop-3.1.2.jar jakarta.transaction
+ -api-2.0.1.jar snakeyaml-1.33.jar spring-security-config-6.1.2.jar Late
+ ncyUtils-2.0.3.jar spring-aspects-6.0.11.jar spring-boot-starter-3.1.2.
+ jar gson-2.10.1.jar txw2-4.0.3.jar swagger-models-jakarta-2.2.9.jar rea
+ ctor-extra-3.5.1.jar micrometer-registry-prometheus-1.11.2.jar lombok-1
+ .18.28.jar spring-cloud-netflix-eureka-client-4.0.2.jar mxparser-1.2.2.
+ jar jakarta.xml.bind-api-4.0.0.jar jackson-datatype-jsr310-2.15.2.jar j
+ oda-time-2.3.jar commons-jxpath-1.3.jar spring-boot-starter-security-3.
+ 1.2.jar springdoc-openapi-starter-webmvc-ui-2.1.0.jar simpleclient_trac
+ er_otel_agent-0.16.0.jar netflix-eventbus-0.3.0.jar servlet-api-2.5.jar
+  jjwt-api-0.11.2.jar jjwt-jackson-0.11.2.jar jaxb-core-4.0.3.jar jakart
+ a.servlet-api-6.0.0.jar httpclient5-5.2.1.jar commons-codec-1.15.jar sp
+ ring-data-commons-3.1.2.jar log4j-api-2.20.0.jar micrometer-core-1.11.2
+ .jar simpleclient_common-0.16.0.jar spring-web-6.0.11.jar commons-loggi
+ ng-1.2.jar springdoc-openapi-starter-common-2.1.0.jar commons-math-2.2.
+ jar micrometer-observation-1.11.2.jar spring-boot-starter-json-3.1.2.ja
+ r jakarta.validation-api-3.0.2.jar commons-lang-2.6.jar spring-security
+ -web-6.1.2.jar evictor-1.0.0.jar hibernate-commons-annotations-6.0.6.Fi
+ nal.jar jackson-datatype-jdk8-2.15.2.jar
+

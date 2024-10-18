@@ -1,0 +1,11 @@
+#secondary-btn {
+    margin: 20px;
+    border-radius: 3px;
+    background-color: var(--contrast-darker);
+    border: 1px solid var(--primary-light);
+    
+}
+
+ #secondary-btn:hover {
+    border: 1px solid var(--primary);
+}

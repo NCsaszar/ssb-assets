@@ -1,0 +1,39 @@
+<footer class="footer">
+    <div class="footer-top">
+      <img [src]="bankLogo" alt="Bank Logo" class="footer-logo" />
+      <h2 class="footer-title">{{ bankName }}</h2>
+    </div>
+    <div class="footer-center">
+      <a [href]="email" class="footer-contact">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        {{ bankName }}
+      </a>
+      <div class="footer-contact">
+        <i class="fa fa-phone" aria-hidden="true"></i>
+        {{ phoneNumber }}
+      </div>
+      <div class="footer-contact">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        {{ location }}
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <section class="footer-bottom-icons">
+        <a [href]="facebookLink" class="icon-link">
+          <i class="fab fa-facebook" aria-hidden="true"></i>
+        </a>
+        <a [href]="twitterLink" class="icon-link">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+        <a [href]="linkedinLink" class="icon-link">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </section>
+      <section>{{ rightsReserved }}</section>
+      <div class="footer-links">
+        <a [href]="privacyLink" class="footer-link">Privacy Policy</a>
+        <a [href]="termsLink" class="footer-link">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+  

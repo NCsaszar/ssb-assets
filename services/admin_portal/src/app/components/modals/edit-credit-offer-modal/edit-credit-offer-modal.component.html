@@ -1,0 +1,36 @@
+<div class="modal">
+  <mat-card class="modal-content">
+    <mat-card-header>
+      <mat-card-title class="mat-card-title">Edit Credit Offer</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <form class="user-details-form" (ngSubmit)="onSubmit()" ngNativeValidate>
+
+
+      <mat-form-field id="form-fieled">
+        <mat-label for="cardOfferName">Card Offer Name:</mat-label>
+        <input matInput placeholder="Card Offer Name" id="cardOfferName" name="cardOfferName" [(ngModel)]="data.offer.cardOfferName" type="text" />
+      </mat-form-field>
+
+      <mat-form-field id="form-fieled">
+        <mat-label for="apr">APR:</mat-label>
+        <input matInput placeholder="APR" id="apr" name="apr" [(ngModel)]="data.offer.apr" type="number" />
+      </mat-form-field>
+
+      <mat-form-field id="form-fieled">
+        <mat-label for="creditLimit">Credit Limit:</mat-label>
+        <input matInput placeholder="Credit Limit" id="creditLimit" name="creditLimit" [(ngModel)]="data.offer.creditLimit" type="number" />
+      </mat-form-field>
+
+      <div >
+        <label>Status:</label>
+        <mat-slide-toggle name="cardOfferStatus" [(ngModel)]="data.offer.cardOfferStatus">Active</mat-slide-toggle>
+      </div>
+
+      <div class="user-service-save-changes-btn">
+        <app-secondary-btn [buttonText]="'Save'" type="submit"></app-secondary-btn>
+        <app-secondary-btn [buttonText]="'Cancel'" (click)="onCancelClick()"></app-secondary-btn>
+      </div>
+    </form>
+  </mat-card>
+</div>

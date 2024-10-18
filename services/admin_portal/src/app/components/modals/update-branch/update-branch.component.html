@@ -1,0 +1,45 @@
+<section class="update-branch-section">
+  <h2 class="update-branch-title">Update Branch</h2>
+  <form class="update-branch-form" [formGroup]="updateBranchForm" (submit)="updateBranch()">
+    <label for="branch-code">Branch Code</label>
+    <input id="branch-code" type="text" formControlName="branchCode" placeholder="branch code">
+
+    <label for="branch-name">Branch Name</label>
+    <input id="branch-name" type="text" formControlName="branchName" placeholder="branch name">
+
+    <label for="branch-manager">Branch Manager</label>
+    <input id="branch-manager" type="text" formControlName="branchManager" placeholder="branch manager">
+
+    <label for="phone-number">Phone Number</label>
+    <input id="phone-number" type="text" formControlName="phoneNumber" placeholder="phone number">
+
+    <label for="email">Email</label>
+    <input id="email" type="email" formControlName="email" placeholder="email">
+
+    <label for="address1">Address 1</label>
+    <input id="address1" type="text" formControlName="address1" placeholder="address 1">
+
+    <label for="address2">Address 2</label>
+    <input id="address2" type="text" formControlName="address2" placeholder="address 2">
+
+    <label for="city">City</label>
+    <input id="city" type="text" formControlName="city" placeholder="city">
+
+    <label for="state">State</label>
+    <input id="state" type="text" formControlName="state" placeholder="state">
+
+    <label for="postal-code">Postal Code</label>
+    <input id="postal-code" type="text" formControlName="postalCode" placeholder="postal code">
+
+    <label for="country">Country</label>
+    <input id="country" type="text" formControlName="country" placeholder="country">
+
+    <label for="latitude">Latitude</label>
+    <input id="latitude" type="text" formControlName="lat" placeholder="latitude">
+
+    <label for="longitude">Longitude</label>
+    <input id="longitude" type="text" formControlName="lng" placeholder="longitude">
+
+    <button type="submit" class="slide-btn">Update Branch Now</button>
+  </form>
+</section>

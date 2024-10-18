@@ -1,0 +1,84 @@
+<div class="modal" *ngIf="show">
+    <mat-card class="modal-content">
+        <mat-card-header>
+            <mat-card-title class="mat-card-title">Edit User</mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <span class="close" (click)="close()">&times;</span>
+        <form class="user-details-form" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+            <!-- Username Field -->
+            <mat-form-field id="form-fieled">
+                <mat-label for="username">Username:</mat-label>
+                <input matInput placeholder="Username" id="username" formControlName="username" type="text" />
+            </mat-form-field>
+
+            <!-- Email Field -->
+            <mat-form-field id="form-fieled">
+                <mat-label for="email">Email:</mat-label>
+                <input matInput placeholder="Email" id="email" formControlName="email" type="email" />
+            </mat-form-field>
+
+            <!-- First Name Field -->
+            <mat-form-field id="form-fieled">
+                <mat-label for="firstName">First Name:</mat-label>
+                <input matInput placeholder="First Name" id="firstName" formControlName="firstName" type="text" />
+            </mat-form-field>
+
+            <!-- Last Name Field -->
+            <mat-form-field id="form-fieled">
+                <mat-label for="lastName">Last Name:</mat-label>
+                <input matInput placeholder="Last Name" id="lastName" formControlName="lastName" type="text" />
+            </mat-form-field>
+
+            <!-- Address Field -->
+            <mat-form-field id="form-fieled">
+                <mat-label for="address">Address:</mat-label>
+                <input matInput placeholder="Address" id="address" formControlName="address" type="text" />
+            </mat-form-field>
+
+            <!-- Phone Number Field -->
+            <mat-form-field id="form-fieled">
+                <mat-label for="phoneNumber">Phone Number:</mat-label>
+                <input matInput placeholder="Phone Number" id="phoneNumber" formControlName="phoneNumber" type="text" />
+            </mat-form-field>
+
+            <!-- Secret Question Field -->
+            <mat-form-field id="form-fieled">
+                <mat-label for="secretQuestion">Secret Question:</mat-label>
+                <mat-select title="secretQuestion" id="secretQuestion" formControlName="secretQuestion">
+                    <mat-option *ngFor="let question of secretQuestions" [value]="question">{{question}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <!-- Secret Answer Field -->
+            <mat-form-field id="form-fieled">
+                <mat-label for="secretAnswer">Secret Answer:</mat-label>
+                <input matInput placeholder="Secret Answer" id="secretAnswer" formControlName="secretAnswer"
+                    type="text" />
+            </mat-form-field>
+
+            <!-- Date of Birth Field -->
+            <mat-form-field id="form-fieled">
+                <mat-label for="dateOfBirth">Date of Birth:</mat-label>
+                <input matInput [matDatepicker]="picker" placeholder="Date of Birth" id="dateOfBirth"
+                    formControlName="dateOfBirth" [max]="getMaxDate()" />
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <!-- Active Field -->
+            <div id="is-active">
+                <mat-label for="isActive">Active:</mat-label>
+                <mat-slide-toggle formControlName="isActive"></mat-slide-toggle>
+            </div>
+
+            <div class="user-service-save-changes-btn-wrapper">
+                <app-secondary-btn [buttonText]="'Save Changes'" type="submit"></app-secondary-btn>
+            </div>
+        </form>
+        <button mat-icon-button (click)="confirmDelete()" id="delete-icon">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </mat-card>
+</div>

@@ -1,0 +1,10 @@
+ .primary-btn {
+    margin: 20px;
+    border-radius: 3px;
+    background-color: var(--contrast-darker);
+    border: 1px solid var(--primary-dark);
+}
+
+ .primary-btn:hover {
+    border: 1px solid var(--primary);
+}

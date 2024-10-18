@@ -1,0 +1,102 @@
+<div class="user-search">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title class="mat-card-title">User Search</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+
+    <div class="card-list">
+      <div class="search">
+              <mat-card-header>
+                  <mat-card-title>Search for User By:</mat-card-title>
+              </mat-card-header>
+              <mat-form-field appearance="fill">
+                  <mat-label>Search By</mat-label>
+                  <select matNativeControl [(ngModel)]="searchCriterion" aria-label="Search By">
+                      <option value="username">Username</option>
+                      <option value="email">Email</option>
+                      <option value="firstName">First Name</option>
+                      <option value="lastName">Last Name</option>
+                  </select>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                  <mat-label>Search</mat-label>
+                  <input matInput type="text" [(ngModel)]="searchTerm" (ngModelChange)="search()" placeholder="Search" />
+              </mat-form-field>
+              <mat-form-field appearance="fill" *ngIf="searchResults.length > 0">
+                  <mat-label>Select User</mat-label>
+                  <select matNativeControl [(ngModel)]="selectedUser" (change)="getUserLoans()">
+                      <option *ngFor="let user of searchResults" [ngValue]="user">{{ user.firstName }} {{ user.lastName }} {{ user.username }}</option>
+                  </select>
+              </mat-form-field>
+      </div>
+      </div>
+    <div class="user-search-container">
+      <div class="card-list">
+        <ng-container *ngIf="userLoans.length > 0; else noLoans">
+          <table mat-table [dataSource]="userLoans" class="mat-table1">
+            <ng-container matColumnDef="userLoanID">
+              <th mat-header-cell *matHeaderCellDef> User Loan ID </th>
+              <td mat-cell *matCellDef="let loan"> {{ loan.userLoanID }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="loanID">
+              <th mat-header-cell *matHeaderCellDef> Loan ID </th>
+              <td mat-cell *matCellDef="let loan"> {{ loan.loanID }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="accountID">
+              <th mat-header-cell *matHeaderCellDef> Account ID </th>
+              <td mat-cell *matCellDef="let loan"> {{ loan.accountID }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="loanAmount">
+              <th mat-header-cell *matHeaderCellDef> Loan Amount </th>
+              <td mat-cell *matCellDef="let loan"> {{ loan.loanAmount }} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="loanStartDate">
+              <th mat-header-cell *matHeaderCellDef> Loan Start Date </th>
+              <td mat-cell *matCellDef="let loan"> {{ loan.loanStartDate | date: 'medium' }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="loanEndDate">
+              <th mat-header-cell *matHeaderCellDef> Loan End Date </th>
+              <td mat-cell *matCellDef="let loan"> {{ loan.loanEndDate | date: 'medium' }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="loanStatus">
+              <th mat-header-cell *matHeaderCellDef> Loan Status </th>
+              <td mat-cell *matCellDef="let loan">
+                <ng-container *ngIf="loan.loanStatus">
+                  <div class="status-cell" [style.background-color]="loan.loanStatus ? 'green' : 'red'">
+                  <span >Active</span>
+                </div>
+                </ng-container>
+                <ng-container *ngIf="!loan.loanStatus && !loan.loanStartDate && !loan.loanEndDate">
+                  <button mat-raised-button color="primary" (click)="approveLoan(loan.userLoanID)">
+                    Approve
+                  </button>
+                </ng-container>
+                <ng-container *ngIf="!loan.loanStatus && (loan.loanStartDate || loan.loanEndDate)">
+                  <span style="color: red;">Inactive</span>
+                </ng-container>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="['userLoanID', 'loanID', 'accountID', 'loanAmount',  'loanStartDate', 'loanEndDate', 'loanStatus']"></tr>
+
+            <tr mat-row *matRowDef="let row; columns: ['userLoanID', 'loanID', 'accountID', 'loanAmount', 'loanStartDate', 'loanEndDate', 'loanStatus'];"></tr>
+          </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+      </ng-container>
+
+        <ng-template #noLoans>
+          <p class="no-loans-message">No loans available for the selected user.</p>
+        </ng-template>
+      </div>
+    </div>
+    
+  </mat-card>
+</div>

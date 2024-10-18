@@ -1,0 +1,587 @@
+2024-08-09 00:25:05 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-08-09 00:25:05 INFO  c.s.a.a.AccountsServiceApplication - Starting AccountsServiceApplication using Java 21.0.1 with PID 26840 (C:\Users\excod\Desktop\Accounts_Microservice\accountsservice\accounts-service\target\classes started by excod in C:\Users\excod\Desktop\Accounts_Microservice\accountsservice)
+2024-08-09 00:25:05 INFO  c.s.a.a.AccountsServiceApplication - The following 1 profile is active: "default"
+2024-08-09 00:25:05 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-09 00:25:05 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-09 00:25:06 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-09 00:25:06 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 199 ms. Found 3 JPA repository interfaces.
+2024-08-09 00:25:07 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=8b4686b9-8224-32fc-ad49-98cdba6bad3b
+2024-08-09 00:25:08 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8090 (http)
+2024-08-09 00:25:08 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8090"]
+2024-08-09 00:25:08 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-09 00:25:08 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.11]
+2024-08-09 00:25:08 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-08-09 00:25:08 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3146 ms
+2024-08-09 00:25:08 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-08-09 00:25:08 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@23fbcd72
+2024-08-09 00:25:08 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-08-09 00:25:08 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/AccountsService'
+2024-08-09 00:25:22 ERROR o.s.b.w.e.tomcat.TomcatStarter - Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'jwtAuthenticationFilter' defined in file [C:\Users\excod\Desktop\Accounts_Microservice\accountsservice\accounts-service\target\classes\com\secure_sentinel\accounts\accounts_service\security\JwtAuthenticationFilter.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jwtService' defined in file [C:\Users\excod\Desktop\Accounts_Microservice\accountsservice\accounts-service\target\classes\com\secure_sentinel\accounts\accounts_service\security\JwtService.class]: Failed to instantiate [com.secure_sentinel.accounts.accounts_service.security.JwtService]: Constructor threw exception
+2024-08-09 00:25:22 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-08-09 00:25:22 WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [idle-connection-reaper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Thread.sleep0(Native Method)
+ java.base/java.lang.Thread.sleep(Thread.java:509)
+ software.amazon.awssdk.http.apache.internal.conn.IdleConnectionReaper$ReaperTask.run(IdleConnectionReaper.java:151)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+2024-08-09 00:25:22 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
+2024-08-09 00:25:22 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-08-09 00:25:22 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-08-09 00:25:22 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-08-09 00:25:22 ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.context.ApplicationContextException: Unable to start web server
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:164)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:602)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.secure_sentinel.accounts.accounts_service.AccountsServiceApplication.main(AccountsServiceApplication.java:11)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:142)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:489)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:211)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:183)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:161)
+	... 11 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'jwtAuthenticationFilter' defined in file [C:\Users\excod\Desktop\Accounts_Microservice\accountsservice\accounts-service\target\classes\com\secure_sentinel\accounts\accounts_service\security\JwtAuthenticationFilter.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jwtService' defined in file [C:\Users\excod\Desktop\Accounts_Microservice\accountsservice\accounts-service\target\classes\com\secure_sentinel\accounts\accounts_service\security\JwtService.class]: Failed to instantiate [com.secure_sentinel.accounts.accounts_service.security.JwtService]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:800)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:245)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1189)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:560)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:210)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:173)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:168)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:153)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:86)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:261)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:235)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4886)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1328)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1318)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:846)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1328)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1318)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:241)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:428)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:918)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:485)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123)
+	... 16 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jwtService' defined in file [C:\Users\excod\Desktop\Accounts_Microservice\accountsservice\accounts-service\target\classes\com\secure_sentinel\accounts\accounts_service\security\JwtService.class]: Failed to instantiate [com.secure_sentinel.accounts.accounts_service.security.JwtService]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1314)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1199)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:560)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1417)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1337)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:888)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 57 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.secure_sentinel.accounts.accounts_service.security.JwtService]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:224)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1308)
+	... 69 common frames omitted
+Caused by: java.lang.RuntimeException: Error retrieving secret: Received an UnknownHostException when attempting to interact with a service. See cause for the exact endpoint that is failing to resolve. If this is happening on an endpoint that previously worked, there may be a network connectivity issue or your DNS cache could be storing endpoints for too long.
+	at com.secure_sentinel.accounts.accounts_service.security.JwtService.getSecret(JwtService.java:42)
+	at com.secure_sentinel.accounts.accounts_service.security.JwtService.<init>(JwtService.java:47)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:198)
+	... 71 common frames omitted
+2024-08-09 00:31:47 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-08-09 00:31:47 INFO  c.s.a.a.AccountsServiceApplication - Starting AccountsServiceApplication using Java 21.0.1 with PID 44104 (C:\Users\excod\Desktop\Accounts_Microservice\accountsservice\accounts-service\target\classes started by excod in C:\Users\excod\Desktop\Accounts_Microservice\accountsservice)
+2024-08-09 00:31:47 INFO  c.s.a.a.AccountsServiceApplication - The following 1 profile is active: "default"
+2024-08-09 00:31:47 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-09 00:31:47 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-09 00:31:49 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-09 00:31:49 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 140 ms. Found 3 JPA repository interfaces.
+2024-08-09 00:31:49 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=8b4686b9-8224-32fc-ad49-98cdba6bad3b
+2024-08-09 00:31:50 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8090 (http)
+2024-08-09 00:31:50 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8090"]
+2024-08-09 00:31:50 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-09 00:31:50 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.11]
+2024-08-09 00:31:50 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-08-09 00:31:50 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2493 ms
+2024-08-09 00:31:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-08-09 00:31:50 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@9922114
+2024-08-09 00:31:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-08-09 00:31:50 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/AccountsService'
+2024-08-09 00:31:52 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-09 00:31:52 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.6.Final
+2024-08-09 00:31:52 INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2024-08-09 00:31:52 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-08-09 00:31:52 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-09 00:31:52 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-08-09 00:31:53 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-08-09 00:31:53 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-09 00:31:53 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-08-09 00:31:54 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-09 00:31:54 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@19a84a5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@57dec85, org.springframework.security.web.context.SecurityContextHolderFilter@12d47817, org.springframework.security.web.header.HeaderWriterFilter@3f526536, org.springframework.security.web.authentication.logout.LogoutFilter@fb7f356, com.secure_sentinel.accounts.accounts_service.security.JwtAuthenticationFilter@d884eed, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a9a66fa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3b4ec99e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@364273d6, org.springframework.security.web.session.SessionManagementFilter@527a32ee, org.springframework.security.web.access.ExceptionTranslationFilter@54304c66, org.springframework.security.web.access.intercept.AuthorizationFilter@7ebf4b98]
+2024-08-09 00:31:56 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2024-08-09 00:31:56 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-08-09 00:31:57 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2024-08-09 00:31:57 INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2024-08-09 00:31:57 WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-08-09 00:31:57 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoint(s) beneath base path '/actuator'
+2024-08-09 00:31:57 INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2024-08-09 00:31:57 INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2024-08-09 00:31:57 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 00:31:57 INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2024-08-09 00:31:57 INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2024-08-09 00:31:57 INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2024-08-09 00:31:57 INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2024-08-09 00:31:57 INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2024-08-09 00:31:57 INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2024-08-09 00:31:57 INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2024-08-09 00:31:58 INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2024-08-09 00:31:58 INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2024-08-09 00:31:58 INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-08-09 00:31:58 INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1723177918083 with initial instances count: 4
+2024-08-09 00:31:58 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application ACCOUNTS-SERVICE with eureka with status UP
+2024-08-09 00:31:58 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1723177918086, current=UP, previous=STARTING]
+2024-08-09 00:31:58 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_ACCOUNTS-SERVICE/localhost:accounts-service:8090: registering service...
+2024-08-09 00:31:58 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8090"]
+2024-08-09 00:31:58 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8090 (http) with context path ''
+2024-08-09 00:31:58 INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8090
+2024-08-09 00:31:58 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_ACCOUNTS-SERVICE/localhost:accounts-service:8090 - registration status: 204
+2024-08-09 00:31:59 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2024-08-09 00:31:59 INFO  c.s.a.a.AccountsServiceApplication - Started AccountsServiceApplication in 12.833 seconds (process running for 13.469)
+2024-08-09 00:32:06 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-09 00:32:06 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-08-09 00:32:06 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-08-09 00:32:07 INFO  c.s.a.a.service.TransactionService - Exporting transactions for account ID: 2, format: pdf
+2024-08-09 00:32:07 INFO  c.s.a.a.service.TransactionService - Transactions found for account ID: 2, size: 0
+2024-08-09 00:32:07 INFO  c.s.a.a.service.TransactionService - Account type: SAVINGS, account program: AccountProgram(programId=4, accountType=SAVINGS, programName=Standard Savings, monthlyFee=0.0, apy=0.5, cashBack=0.0, rewardsType=null)
+2024-08-09 00:32:07 WARN  c.s.a.a.service.TransactionService - No transactions found for account ID: 2 in the specified date range
+2024-08-09 00:32:07 INFO  c.s.a.a.service.TransactionService - Exporting transactions for account ID: 1, format: pdf
+2024-08-09 00:32:07 INFO  c.s.a.a.service.TransactionService - Transactions found for account ID: 1, size: 9
+2024-08-09 00:32:07 INFO  c.s.a.a.service.TransactionService - Account type: CHECKING, account program: AccountProgram(programId=1, accountType=CHECKING, programName=$0 Monthly Fee Checking, monthlyFee=0.0, apy=0.0, cashBack=0.0, rewardsType=null)
+2024-08-09 00:34:17 INFO  c.s.a.a.service.TransactionService - Exporting transactions for account ID: 2, format: pdf
+2024-08-09 00:34:17 INFO  c.s.a.a.service.TransactionService - Transactions found for account ID: 2, size: 0
+2024-08-09 00:34:17 INFO  c.s.a.a.service.TransactionService - Account type: SAVINGS, account program: AccountProgram(programId=4, accountType=SAVINGS, programName=Standard Savings, monthlyFee=0.0, apy=0.5, cashBack=0.0, rewardsType=null)
+2024-08-09 00:34:17 WARN  c.s.a.a.service.TransactionService - No transactions found for account ID: 2 in the specified date range
+2024-08-09 00:34:17 INFO  c.s.a.a.service.TransactionService - Exporting transactions for account ID: 1, format: pdf
+2024-08-09 00:34:17 INFO  c.s.a.a.service.TransactionService - Transactions found for account ID: 1, size: 9
+2024-08-09 00:34:17 INFO  c.s.a.a.service.TransactionService - Account type: CHECKING, account program: AccountProgram(programId=1, accountType=CHECKING, programName=$0 Monthly Fee Checking, monthlyFee=0.0, apy=0.0, cashBack=0.0, rewardsType=null)
+2024-08-09 00:36:50 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application ACCOUNTS-SERVICE with eureka with status DOWN
+2024-08-09 00:36:50 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1723178210552, current=DOWN, previous=UP]
+2024-08-09 00:36:50 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_ACCOUNTS-SERVICE/localhost:accounts-service:8090: registering service...
+2024-08-09 00:36:50 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_ACCOUNTS-SERVICE/localhost:accounts-service:8090 - registration status: 204
+2024-08-09 00:36:50 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-09 00:36:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-08-09 00:36:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-08-09 00:36:50 INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2024-08-09 00:36:53 INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+2024-08-09 00:36:53 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_ACCOUNTS-SERVICE/localhost:accounts-service:8090 - deregister  status: 200
+2024-08-09 00:36:53 INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2024-08-09 14:10:54 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-08-09 14:10:54 INFO  c.s.a.a.AccountsServiceApplication - Starting AccountsServiceApplication using Java 21.0.1 with PID 47596 (C:\Users\excod\Desktop\Accounts_Microservice\accountsservice\accounts-service\target\classes started by excod in C:\Users\excod\Desktop\Accounts_Microservice\accountsservice)
+2024-08-09 14:10:54 INFO  c.s.a.a.AccountsServiceApplication - The following 1 profile is active: "default"
+2024-08-09 14:10:54 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-09 14:10:54 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-09 14:10:55 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-09 14:10:55 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 140 ms. Found 3 JPA repository interfaces.
+2024-08-09 14:10:56 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=8b4686b9-8224-32fc-ad49-98cdba6bad3b
+2024-08-09 14:10:56 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8090 (http)
+2024-08-09 14:10:56 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8090"]
+2024-08-09 14:10:56 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-09 14:10:56 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.11]
+2024-08-09 14:10:56 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-08-09 14:10:56 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2570 ms
+2024-08-09 14:10:57 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-08-09 14:10:57 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4cb2ccdb
+2024-08-09 14:10:57 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-08-09 14:10:57 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/AccountsService'
+2024-08-09 14:10:58 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-09 14:10:58 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.6.Final
+2024-08-09 14:10:58 INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2024-08-09 14:10:58 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-08-09 14:10:58 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-09 14:10:59 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-08-09 14:10:59 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-08-09 14:10:59 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-09 14:11:00 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-08-09 14:11:00 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-09 14:11:01 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@52819a03, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@737a34ae, org.springframework.security.web.context.SecurityContextHolderFilter@528f897e, org.springframework.security.web.header.HeaderWriterFilter@3711a417, org.springframework.security.web.authentication.logout.LogoutFilter@16669f7e, com.secure_sentinel.accounts.accounts_service.security.JwtAuthenticationFilter@1ee9d41d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@70864be1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7cba1307, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5af60e5f, org.springframework.security.web.session.SessionManagementFilter@1837eb9e, org.springframework.security.web.access.ExceptionTranslationFilter@7b5a34d7, org.springframework.security.web.access.intercept.AuthorizationFilter@766ae603]
+2024-08-09 14:11:02 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2024-08-09 14:11:02 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-08-09 14:11:03 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2024-08-09 14:11:03 INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2024-08-09 14:11:04 WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-08-09 14:11:04 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoint(s) beneath base path '/actuator'
+2024-08-09 14:11:04 INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2024-08-09 14:11:04 INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2024-08-09 14:11:04 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 14:11:04 INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2024-08-09 14:11:04 INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2024-08-09 14:11:04 INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2024-08-09 14:11:04 INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2024-08-09 14:11:04 INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2024-08-09 14:11:04 INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2024-08-09 14:11:04 INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2024-08-09 14:11:04 INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2024-08-09 14:11:04 INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2024-08-09 14:11:04 INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-08-09 14:11:04 INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1723227064410 with initial instances count: 4
+2024-08-09 14:11:04 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application ACCOUNTS-SERVICE with eureka with status UP
+2024-08-09 14:11:04 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1723227064413, current=UP, previous=STARTING]
+2024-08-09 14:11:04 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_ACCOUNTS-SERVICE/localhost:accounts-service:8090: registering service...
+2024-08-09 14:11:04 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8090"]
+2024-08-09 14:11:04 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8090 (http) with context path ''
+2024-08-09 14:11:04 INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8090
+2024-08-09 14:11:04 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_ACCOUNTS-SERVICE/localhost:accounts-service:8090 - registration status: 204
+2024-08-09 14:11:05 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2024-08-09 14:11:05 INFO  c.s.a.a.AccountsServiceApplication - Started AccountsServiceApplication in 12.696 seconds (process running for 13.402)
+2024-08-09 14:11:09 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application ACCOUNTS-SERVICE with eureka with status DOWN
+2024-08-09 14:11:09 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1723227069928, current=DOWN, previous=UP]
+2024-08-09 14:11:09 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_ACCOUNTS-SERVICE/localhost:accounts-service:8090: registering service...
+2024-08-09 14:11:09 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_ACCOUNTS-SERVICE/localhost:accounts-service:8090 - registration status: 204
+2024-08-09 14:11:09 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-09 14:11:09 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-08-09 14:11:09 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-08-09 14:11:09 INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2024-08-09 14:11:12 INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+2024-08-09 14:11:12 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_ACCOUNTS-SERVICE/localhost:accounts-service:8090 - deregister  status: 200
+2024-08-09 14:11:12 INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2024-08-09 14:33:43 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-08-09 14:33:43 INFO  c.s.a.a.AccountsServiceApplication - Starting AccountsServiceApplication using Java 21.0.1 with PID 29044 (C:\Users\excod\Desktop\Accounts_Microservice\accountsservice\accounts-service\target\classes started by excod in C:\Users\excod\Desktop\Accounts_Microservice\accountsservice)
+2024-08-09 14:33:43 INFO  c.s.a.a.AccountsServiceApplication - The following 1 profile is active: "default"
+2024-08-09 14:33:43 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-09 14:33:43 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-09 14:33:44 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-09 14:33:45 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 136 ms. Found 3 JPA repository interfaces.
+2024-08-09 14:33:45 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=8b4686b9-8224-32fc-ad49-98cdba6bad3b
+2024-08-09 14:33:46 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8000 (http)
+2024-08-09 14:33:46 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]
+2024-08-09 14:33:46 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-09 14:33:46 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.11]
+2024-08-09 14:33:46 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-08-09 14:33:46 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2544 ms
+2024-08-09 14:33:46 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-08-09 14:33:46 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7fd6d524
+2024-08-09 14:33:46 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-08-09 14:33:46 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/AccountsService'
+2024-08-09 14:33:47 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-09 14:33:47 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.6.Final
+2024-08-09 14:33:47 INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2024-08-09 14:33:47 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-08-09 14:33:48 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-09 14:33:48 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-08-09 14:33:48 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-08-09 14:33:48 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-09 14:33:49 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-08-09 14:33:50 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-09 14:33:50 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@627073e4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@14c85439, org.springframework.security.web.context.SecurityContextHolderFilter@47b1fcef, org.springframework.security.web.header.HeaderWriterFilter@561f8c80, org.springframework.security.web.authentication.logout.LogoutFilter@2a1c0f34, com.secure_sentinel.accounts.accounts_service.security.JwtAuthenticationFilter@69d1c5f7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@563f9dee, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6438dfa9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@48285ceb, org.springframework.security.web.session.SessionManagementFilter@32ba0567, org.springframework.security.web.access.ExceptionTranslationFilter@37b96051, org.springframework.security.web.access.intercept.AuthorizationFilter@7c6145e6]
+2024-08-09 14:33:51 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2024-08-09 14:33:51 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-08-09 14:33:52 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2024-08-09 14:33:52 INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2024-08-09 14:33:53 WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-08-09 14:33:53 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoint(s) beneath base path '/actuator'
+2024-08-09 14:33:53 INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2024-08-09 14:33:53 INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2024-08-09 14:33:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 14:33:53 INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2024-08-09 14:33:53 INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2024-08-09 14:33:53 INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2024-08-09 14:33:53 INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2024-08-09 14:33:53 INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2024-08-09 14:33:53 INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2024-08-09 14:33:53 INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2024-08-09 14:33:53 INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2024-08-09 14:33:53 INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2024-08-09 14:33:53 INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-08-09 14:33:53 INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1723228433399 with initial instances count: 5
+2024-08-09 14:33:53 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application ACCOUNTS-SERVICE with eureka with status UP
+2024-08-09 14:33:53 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1723228433402, current=UP, previous=STARTING]
+2024-08-09 14:33:53 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_ACCOUNTS-SERVICE/localhost:accounts-service:8000: registering service...
+2024-08-09 14:33:53 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8000"]
+2024-08-09 14:33:53 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8000 (http) with context path ''
+2024-08-09 14:33:53 INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8000
+2024-08-09 14:33:53 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_ACCOUNTS-SERVICE/localhost:accounts-service:8000 - registration status: 204
+2024-08-09 14:33:54 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2024-08-09 14:33:54 INFO  c.s.a.a.AccountsServiceApplication - Started AccountsServiceApplication in 12.382 seconds (process running for 13.042)
+2024-08-09 14:34:12 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-09 14:34:12 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-08-09 14:34:12 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-08-09 14:35:09 INFO  c.s.a.a.service.TransactionService - Exporting transactions for account ID: 2, format: pdf
+2024-08-09 14:35:09 INFO  c.s.a.a.service.TransactionService - Transactions found for account ID: 2, size: 0
+2024-08-09 14:35:09 INFO  c.s.a.a.service.TransactionService - Account type: SAVINGS, account program: AccountProgram(programId=4, accountType=SAVINGS, programName=Standard Savings, monthlyFee=0.0, apy=0.5, cashBack=0.0, rewardsType=null)
+2024-08-09 14:35:09 WARN  c.s.a.a.service.TransactionService - No transactions found for account ID: 2 in the specified date range
+2024-08-09 14:35:09 INFO  c.s.a.a.service.TransactionService - Exporting transactions for account ID: 1, format: pdf
+2024-08-09 14:35:09 INFO  c.s.a.a.service.TransactionService - Transactions found for account ID: 1, size: 9
+2024-08-09 14:35:09 INFO  c.s.a.a.service.TransactionService - Account type: CHECKING, account program: AccountProgram(programId=1, accountType=CHECKING, programName=$0 Monthly Fee Checking, monthlyFee=0.0, apy=0.0, cashBack=0.0, rewardsType=null)
+2024-08-09 14:38:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 14:41:16 INFO  c.s.a.a.service.TransactionService - Exporting transactions for account ID: 2, format: pdf
+2024-08-09 14:41:16 INFO  c.s.a.a.service.TransactionService - Transactions found for account ID: 2, size: 0
+2024-08-09 14:41:16 INFO  c.s.a.a.service.TransactionService - Account type: SAVINGS, account program: AccountProgram(programId=4, accountType=SAVINGS, programName=Standard Savings, monthlyFee=0.0, apy=0.5, cashBack=0.0, rewardsType=null)
+2024-08-09 14:41:16 WARN  c.s.a.a.service.TransactionService - No transactions found for account ID: 2 in the specified date range
+2024-08-09 14:41:16 INFO  c.s.a.a.service.TransactionService - Exporting transactions for account ID: 1, format: pdf
+2024-08-09 14:41:16 INFO  c.s.a.a.service.TransactionService - Transactions found for account ID: 1, size: 9
+2024-08-09 14:41:16 INFO  c.s.a.a.service.TransactionService - Account type: CHECKING, account program: AccountProgram(programId=1, accountType=CHECKING, programName=$0 Monthly Fee Checking, monthlyFee=0.0, apy=0.0, cashBack=0.0, rewardsType=null)
+2024-08-09 14:43:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 14:48:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 14:53:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 14:58:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 14:58:54 INFO  c.s.a.a.service.TransactionService - Exporting transactions for account ID: 2, format: pdf
+2024-08-09 14:58:54 INFO  c.s.a.a.service.TransactionService - Transactions found for account ID: 2, size: 0
+2024-08-09 14:58:54 INFO  c.s.a.a.service.TransactionService - Account type: SAVINGS, account program: AccountProgram(programId=4, accountType=SAVINGS, programName=Standard Savings, monthlyFee=0.0, apy=0.5, cashBack=0.0, rewardsType=null)
+2024-08-09 14:58:54 WARN  c.s.a.a.service.TransactionService - No transactions found for account ID: 2 in the specified date range
+2024-08-09 14:58:54 INFO  c.s.a.a.service.TransactionService - Exporting transactions for account ID: 1, format: pdf
+2024-08-09 14:58:54 INFO  c.s.a.a.service.TransactionService - Transactions found for account ID: 1, size: 9
+2024-08-09 14:58:54 INFO  c.s.a.a.service.TransactionService - Account type: CHECKING, account program: AccountProgram(programId=1, accountType=CHECKING, programName=$0 Monthly Fee Checking, monthlyFee=0.0, apy=0.0, cashBack=0.0, rewardsType=null)
+2024-08-09 14:58:55 INFO  c.s.a.a.service.TransactionService - Exporting transactions for account ID: 3, format: pdf
+2024-08-09 14:58:55 INFO  c.s.a.a.service.TransactionService - Transactions found for account ID: 3, size: 0
+2024-08-09 14:58:55 INFO  c.s.a.a.service.TransactionService - Account type: CHECKING, account program: AccountProgram(programId=1, accountType=CHECKING, programName=$0 Monthly Fee Checking, monthlyFee=0.0, apy=0.0, cashBack=0.0, rewardsType=null)
+2024-08-09 14:58:55 WARN  c.s.a.a.service.TransactionService - No transactions found for account ID: 3 in the specified date range
+2024-08-09 14:58:55 INFO  c.s.a.a.service.TransactionService - Exporting transactions for account ID: 4, format: pdf
+2024-08-09 14:58:55 INFO  c.s.a.a.service.TransactionService - Transactions found for account ID: 4, size: 0
+2024-08-09 14:58:55 INFO  c.s.a.a.service.TransactionService - Account type: SAVINGS, account program: AccountProgram(programId=4, accountType=SAVINGS, programName=Standard Savings, monthlyFee=0.0, apy=0.5, cashBack=0.0, rewardsType=null)
+2024-08-09 14:58:55 WARN  c.s.a.a.service.TransactionService - No transactions found for account ID: 4 in the specified date range
+2024-08-09 15:03:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 15:08:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 15:11:40 INFO  c.s.a.a.service.TransactionService - Exporting transactions for account ID: 2, format: pdf
+2024-08-09 15:11:40 INFO  c.s.a.a.service.TransactionService - Transactions found for account ID: 2, size: 0
+2024-08-09 15:11:40 INFO  c.s.a.a.service.TransactionService - Account type: SAVINGS, account program: AccountProgram(programId=4, accountType=SAVINGS, programName=Standard Savings, monthlyFee=0.0, apy=0.5, cashBack=0.0, rewardsType=null)
+2024-08-09 15:11:40 WARN  c.s.a.a.service.TransactionService - No transactions found for account ID: 2 in the specified date range
+2024-08-09 15:11:40 INFO  c.s.a.a.service.TransactionService - Exporting transactions for account ID: 1, format: pdf
+2024-08-09 15:11:40 INFO  c.s.a.a.service.TransactionService - Transactions found for account ID: 1, size: 9
+2024-08-09 15:11:40 INFO  c.s.a.a.service.TransactionService - Account type: CHECKING, account program: AccountProgram(programId=1, accountType=CHECKING, programName=$0 Monthly Fee Checking, monthlyFee=0.0, apy=0.0, cashBack=0.0, rewardsType=null)
+2024-08-09 15:11:40 INFO  c.s.a.a.service.TransactionService - Exporting transactions for account ID: 3, format: pdf
+2024-08-09 15:11:40 INFO  c.s.a.a.service.TransactionService - Transactions found for account ID: 3, size: 0
+2024-08-09 15:11:40 INFO  c.s.a.a.service.TransactionService - Account type: CHECKING, account program: AccountProgram(programId=1, accountType=CHECKING, programName=$0 Monthly Fee Checking, monthlyFee=0.0, apy=0.0, cashBack=0.0, rewardsType=null)
+2024-08-09 15:11:40 WARN  c.s.a.a.service.TransactionService - No transactions found for account ID: 3 in the specified date range
+2024-08-09 15:11:40 INFO  c.s.a.a.service.TransactionService - Exporting transactions for account ID: 4, format: pdf
+2024-08-09 15:11:40 INFO  c.s.a.a.service.TransactionService - Transactions found for account ID: 4, size: 0
+2024-08-09 15:11:40 INFO  c.s.a.a.service.TransactionService - Account type: SAVINGS, account program: AccountProgram(programId=4, accountType=SAVINGS, programName=Standard Savings, monthlyFee=0.0, apy=0.5, cashBack=0.0, rewardsType=null)
+2024-08-09 15:11:40 WARN  c.s.a.a.service.TransactionService - No transactions found for account ID: 4 in the specified date range
+2024-08-09 15:13:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 15:13:54 INFO  c.s.a.a.service.TransactionService - Exporting transactions for account ID: 2, format: pdf
+2024-08-09 15:13:54 INFO  c.s.a.a.service.TransactionService - Transactions found for account ID: 2, size: 0
+2024-08-09 15:13:54 INFO  c.s.a.a.service.TransactionService - Account type: SAVINGS, account program: AccountProgram(programId=4, accountType=SAVINGS, programName=Standard Savings, monthlyFee=0.0, apy=0.5, cashBack=0.0, rewardsType=null)
+2024-08-09 15:13:54 WARN  c.s.a.a.service.TransactionService - No transactions found for account ID: 2 in the specified date range
+2024-08-09 15:13:54 INFO  c.s.a.a.service.TransactionService - Exporting transactions for account ID: 1, format: pdf
+2024-08-09 15:13:54 INFO  c.s.a.a.service.TransactionService - Transactions found for account ID: 1, size: 9
+2024-08-09 15:13:54 INFO  c.s.a.a.service.TransactionService - Account type: CHECKING, account program: AccountProgram(programId=1, accountType=CHECKING, programName=$0 Monthly Fee Checking, monthlyFee=0.0, apy=0.0, cashBack=0.0, rewardsType=null)
+2024-08-09 15:13:54 INFO  c.s.a.a.service.TransactionService - Exporting transactions for account ID: 3, format: pdf
+2024-08-09 15:13:54 INFO  c.s.a.a.service.TransactionService - Transactions found for account ID: 3, size: 0
+2024-08-09 15:13:54 INFO  c.s.a.a.service.TransactionService - Account type: CHECKING, account program: AccountProgram(programId=1, accountType=CHECKING, programName=$0 Monthly Fee Checking, monthlyFee=0.0, apy=0.0, cashBack=0.0, rewardsType=null)
+2024-08-09 15:13:54 WARN  c.s.a.a.service.TransactionService - No transactions found for account ID: 3 in the specified date range
+2024-08-09 15:13:54 INFO  c.s.a.a.service.TransactionService - Exporting transactions for account ID: 4, format: pdf
+2024-08-09 15:13:54 INFO  c.s.a.a.service.TransactionService - Transactions found for account ID: 4, size: 0
+2024-08-09 15:13:54 INFO  c.s.a.a.service.TransactionService - Account type: SAVINGS, account program: AccountProgram(programId=4, accountType=SAVINGS, programName=Standard Savings, monthlyFee=0.0, apy=0.5, cashBack=0.0, rewardsType=null)
+2024-08-09 15:13:54 WARN  c.s.a.a.service.TransactionService - No transactions found for account ID: 4 in the specified date range
+2024-08-09 15:18:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 15:23:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 15:28:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 15:33:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 15:38:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 15:43:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 15:48:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 15:53:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 15:58:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 16:03:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 16:08:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 16:13:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 16:18:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 16:23:53 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 16:26:28 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application ACCOUNTS-SERVICE with eureka with status DOWN
+2024-08-09 16:26:28 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1723235188692, current=DOWN, previous=UP]
+2024-08-09 16:26:28 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_ACCOUNTS-SERVICE/localhost:accounts-service:8000: registering service...
+2024-08-09 16:26:28 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_ACCOUNTS-SERVICE/localhost:accounts-service:8000 - registration status: 204
+2024-08-09 16:26:28 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-09 16:26:28 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-08-09 16:26:28 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-08-09 16:26:28 INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2024-08-09 16:26:31 WARN  c.n.discovery.TimedSupervisorTask - task supervisor shutting down, can't accept the task
+2024-08-09 16:26:31 INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+2024-08-09 16:26:31 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_ACCOUNTS-SERVICE/localhost:accounts-service:8000 - deregister  status: 200
+2024-08-09 16:26:31 INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2024-08-09 16:26:39 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-08-09 16:26:39 INFO  c.s.a.a.AccountsServiceApplication - Starting AccountsServiceApplication using Java 21.0.1 with PID 12956 (C:\Users\excod\Desktop\Accounts_Microservice\accountsservice\accounts-service\target\classes started by excod in C:\Users\excod\Desktop\Accounts_Microservice\accountsservice)
+2024-08-09 16:26:39 INFO  c.s.a.a.AccountsServiceApplication - The following 1 profile is active: "default"
+2024-08-09 16:26:39 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-09 16:26:39 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-09 16:26:40 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-09 16:26:40 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 137 ms. Found 3 JPA repository interfaces.
+2024-08-09 16:26:41 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=8b4686b9-8224-32fc-ad49-98cdba6bad3b
+2024-08-09 16:26:42 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8000 (http)
+2024-08-09 16:26:42 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]
+2024-08-09 16:26:42 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-09 16:26:42 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.11]
+2024-08-09 16:26:42 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-08-09 16:26:42 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2915 ms
+2024-08-09 16:26:42 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-08-09 16:26:42 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4d7fea58
+2024-08-09 16:26:42 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-08-09 16:26:42 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/AccountsService'
+2024-08-09 16:26:44 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-09 16:26:44 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.6.Final
+2024-08-09 16:26:44 INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2024-08-09 16:26:44 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-08-09 16:26:44 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-09 16:26:44 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-08-09 16:26:45 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-08-09 16:26:45 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-09 16:26:45 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-08-09 16:26:46 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-09 16:26:46 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@46f97236, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4feb37d7, org.springframework.security.web.context.SecurityContextHolderFilter@78a5feb6, org.springframework.security.web.header.HeaderWriterFilter@3d956f2e, org.springframework.security.web.authentication.logout.LogoutFilter@77457d88, com.secure_sentinel.accounts.accounts_service.security.JwtAuthenticationFilter@260d081, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6c35c3b7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@75f3400a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4f97c91a, org.springframework.security.web.session.SessionManagementFilter@2a1c0f34, org.springframework.security.web.access.ExceptionTranslationFilter@57fa3b3e, org.springframework.security.web.access.intercept.AuthorizationFilter@4d288678]
+2024-08-09 16:26:48 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2024-08-09 16:26:48 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-08-09 16:26:49 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2024-08-09 16:26:49 INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2024-08-09 16:26:49 WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-08-09 16:26:49 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoint(s) beneath base path '/actuator'
+2024-08-09 16:26:49 INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2024-08-09 16:26:49 INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2024-08-09 16:26:49 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 16:26:50 INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2024-08-09 16:26:50 INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2024-08-09 16:26:50 INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2024-08-09 16:26:50 INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2024-08-09 16:26:50 INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2024-08-09 16:26:50 INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2024-08-09 16:26:50 INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2024-08-09 16:26:50 INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2024-08-09 16:26:50 INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2024-08-09 16:26:50 INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-08-09 16:26:50 INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1723235210268 with initial instances count: 6
+2024-08-09 16:26:50 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application ACCOUNTS-SERVICE with eureka with status UP
+2024-08-09 16:26:50 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1723235210271, current=UP, previous=STARTING]
+2024-08-09 16:26:50 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_ACCOUNTS-SERVICE/localhost:accounts-service:8000: registering service...
+2024-08-09 16:26:50 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8000"]
+2024-08-09 16:26:50 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8000 (http) with context path ''
+2024-08-09 16:26:50 INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8000
+2024-08-09 16:26:50 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_ACCOUNTS-SERVICE/localhost:accounts-service:8000 - registration status: 204
+2024-08-09 16:26:51 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2024-08-09 16:26:51 INFO  c.s.a.a.AccountsServiceApplication - Started AccountsServiceApplication in 13.658 seconds (process running for 14.334)
+2024-08-09 16:27:53 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-09 16:27:53 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-08-09 16:27:53 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-08-09 16:31:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 16:36:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 16:41:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 16:46:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 16:51:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 16:56:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 17:01:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 17:06:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 17:11:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 17:16:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 17:21:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 17:26:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 17:31:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 17:36:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 17:41:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 17:46:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 17:51:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 17:56:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 18:01:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 18:06:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 18:11:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 18:16:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 18:21:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 18:26:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 18:31:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 18:36:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 18:41:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 18:46:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 18:51:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 18:56:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 19:01:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 19:06:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 19:11:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 19:16:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 19:21:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 19:26:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 19:31:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 19:36:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 19:41:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 19:46:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 19:51:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 19:56:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 20:01:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 20:06:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 20:11:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 20:16:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 20:21:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 20:26:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 20:31:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 20:36:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 20:41:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 20:46:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 20:51:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 20:56:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 21:01:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 21:06:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 21:11:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 21:16:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 21:21:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 21:26:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 21:31:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 21:36:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 21:41:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 21:46:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 21:51:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 21:56:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 22:01:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 22:06:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 22:11:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 22:16:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 22:21:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 22:26:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 22:31:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 22:36:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 22:41:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 22:46:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 22:51:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 22:56:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 23:01:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 23:06:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 23:11:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 23:16:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 23:21:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 23:26:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 23:31:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 23:36:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 23:41:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 23:46:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 23:51:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-08-09 23:56:50 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration

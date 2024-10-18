@@ -1,0 +1,66 @@
+.modal-content {
+    background-color: var(--card-background);
+      color: ivory;
+      border-radius: 4px;
+      box-shadow: inset 0px 0px 2px 0px var(--primary-light);
+      display: flex;
+      flex-direction: column;
+      max-width: 75vw; 
+      }
+      
+      mat-card-title {
+        color: var(--title);
+      }
+      
+      mat-form-field {
+        margin-right: 20px;
+        font-size: large;
+      }
+      
+      .modal-content form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto; 
+        align-items: center;
+        padding: 16px;
+      }
+      
+      .user-service-save-changes-btn {
+        grid-column: span 2; 
+        display: flex;
+        justify-content: center; 
+        margin-top: 20px;
+      }
+      
+      .close {
+        position: absolute;
+        top: 0px;
+        right: 15px;
+        color: #aaa;
+        font-size: 36px;
+        font-weight: bold;
+        cursor: pointer;
+        background: linear-gradient(80deg, #c25c09, #d19214, #fef1a2, #c79221, #bd5a09);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      
+      .close:hover {
+        background: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+      
+      .modal-content>button {
+        background-color: #F4D874;
+        color: #1C1C1C;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+      }
+      
+      .modal-content>button:hover {
+        background-color: #e0c060;
+      }

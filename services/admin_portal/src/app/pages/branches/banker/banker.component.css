@@ -1,0 +1,92 @@
+.banker-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 75vw;
+}
+
+.banker-title {
+  border-top: 2px solid var(--primary);
+  border-bottom: 2px solid var(--primary);
+  width: 75vw;
+  text-align: center;
+  color: var(--light);
+  margin-bottom: 5vh;
+}
+
+.banker-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  width: 75vw;
+  min-height: 75px;
+}
+
+.banker-filter,
+.banker-filter input {
+  width: 400px;
+}
+
+.create-banker-modal-toggle-section {
+  border: 1px solid var(--primary);
+  margin: 0 0 20px 0;
+  background-color: var(--gray);
+  color: var(--light);
+  box-shadow: 2px 2px 4px var(--black);
+  height: 40px;
+}
+
+
+.banker-table {
+  width: 75vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.banker-table-header {
+  background-color: var(--dark) !important;
+  color: var(--primary);
+  font-size: 130%;
+}
+
+.banker-table-text {
+  color: var(--light);
+  font-size: 120%;
+}
+
+.banker-details-link {
+  background-color: var(--primary);
+  border-radius: 3px;
+  width: 120px;
+  height: 40px;
+}
+
+.banker-paginator {
+  width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .banker-filter{
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .banker-top-bar {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .banker-filter{
+    width: 75vw;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .banker-filter {
+    width: 75vw;
+  }
+}

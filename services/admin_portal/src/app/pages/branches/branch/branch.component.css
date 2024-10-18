@@ -1,0 +1,99 @@
+.branch-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 85vh;
+  margin-left: 220px;
+  margin-bottom: 5vh;
+}
+
+.branch-title {
+  border-top: 3px solid var(--primary);
+  border-bottom: 3px solid var(--primary);
+  width: 75vw;
+  text-align: center;
+  color: var(--light);
+  margin-bottom: 10vh;
+}
+
+.branch-actions-container {
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  width: 75vw;
+  height: 75px;
+}
+
+.branch-filter,
+.branch-filter input {
+  width: 400px;
+}
+
+.create-branch-modal-toggle-section {
+  border: 1px solid var(--primary);
+  margin: 0 0 20px 0;
+  background-color: var(--gray);
+  color: var(--light);
+  box-shadow: 2px 2px 4px var(--black);
+  height: 40px;
+}
+
+.branch-table {
+  width: 75vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.branch-table-header {
+  background-color: var(--dark) !important;
+  color: var(--primary);
+  font-size: 130%;
+}
+
+.branch-table-text {
+  color: var(--light);
+  font-size: 120%;
+}
+
+.branch-details-link {
+  background-color: var(--primary);
+  border-radius: 3px;
+  width: 120px;
+  height: 40px;
+}
+
+.branch-paginator {
+  width: 100%;
+}
+
+@media  screen and (max-width: 1200px) {
+  .branch-component {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .branch-filter{
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .branch-top-bar {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .branch-filter{
+    width: 75vw;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .branch-filter {
+    width: 75vw;
+  }
+}

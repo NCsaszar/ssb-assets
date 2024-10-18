@@ -1,0 +1,53 @@
+<section class="create-branch-section">
+  <h2 mat-dialog-title class="create-branch-title">Create a New Branch</h2>
+  <!-- <mat-dialog-content class="mat-typography"> -->
+    <form class="create-branch-form" [formGroup]="createBranchForm" (ngSubmit)="createBranch()">
+
+      <label for="branch-code">Branch Code</label>
+      <input id="branch-code" type="text" formControlName="branchCode" placeholder="SSB1" required pattern="SSB[1234567890][1234567890]" />
+
+      <label for="branch-name">Branch Name</label>
+      <input id="branch-name" type="text" formControlName="branchName" placeholder="1st Secure Sentinel Bank - L.A." required />
+      
+      <label for="branch-manager">Branch Manager</label>
+      <input id="branch-manager" type="text" formControlName="branchManager" placeholder="123" required />
+      
+      <label for="phone-number">Phone Number</label>
+      <input id="phone-number" type="text" formControlName="phoneNumber" placeholder="xxx-xxx-xxxx" required />
+
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" placeholder="email@email.com" required />
+
+      <label for="address1">Address 1</label>
+      <input id="address1" type="text" formControlName="address1" placeholder="1 First St" required />
+
+      <label for="address2">Address 2</label>
+      <input id="address2" type="text" formControlName="address2" placeholder="apt. 1" />
+
+      <label for="city">City</label>
+      <input id="city" type="text" formControlName="city" placeholder="First City" required />
+      
+      <label for="state">State</label>
+      <input id="state" type="text" formControlName="state" placeholder="California" required />
+      
+      <label for="postal-code">Postal Code</label>
+      <input id="postal-code" type="text" formControlName="postalCode" placeholder="12345" required />
+      
+      <label for="country">Country</label>
+      <input id="country" type="text" formControlName="country" placeholder="Unites States" required />
+
+      <label for="latitude">Latitude</label>
+      <input id="latitude" type="text" formControlName="lat" placeholder="42.2020" required />
+      
+      <label for="longitude">Longitude</label>
+      <input id="longitude" type="text" formControlName="lng" placeholder="-128.2020" required />
+
+      <button type="submit" class="slide-btn">Create Branch Now</button>
+    </form>
+  <!-- </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Create New Branch</button>
+  </mat-dialog-actions> -->
+
+</section>

@@ -1,0 +1,29 @@
+/* Dialog Title */
+h1 {
+    color: transparent;
+    background: linear-gradient(202deg, #c25c09, #e3a221, #fef1a2, #d8a12a, #bd5a09);
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: larger;
+    text-align: center;
+    width: 100%;
+}
+
+.deletion-dialog-wrapper {
+    text-align: center;
+    background-color: var(--contrast-darker);
+}
+
+
+mat-dialog-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+mat-dialog-actions button {
+    min-width: 80px;
+    text-wrap: nowrap;
+    font-size: medium;
+    margin: 10px;
+} 

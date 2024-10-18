@@ -1,0 +1,31 @@
+<section class="update-branch-location-section">
+  <h2 class="update-branch-location-title">Update Branch</h2>
+  <form class="update-branch-location-form" [formGroup]="updateBranchLocationForm" (submit)="updateBranch()">
+
+    <label for="address1">Address 1</label>
+    <input id="address1" type="text" formControlName="address1" placeholder="address 1">
+
+    <label for="address2">Address 2</label>
+    <input id="address2" type="text" formControlName="address2" placeholder="address 2">
+
+    <label for="city">City</label>
+    <input id="city" type="text" formControlName="city" placeholder="city">
+
+    <label for="state">State</label>
+    <input id="state" type="text" formControlName="state" placeholder="state">
+
+    <label for="postal-code">Postal Code</label>
+    <input id="postal-code" type="text" formControlName="postalCode" placeholder="postal code">
+
+    <label for="country">Country</label>
+    <input id="country" type="text" formControlName="country" placeholder="country">
+
+    <label for="latitude">Latitude</label>
+    <input id="latitude" type="text" formControlName="lat" placeholder="latitude">
+
+    <label for="longitude">Longitude</label>
+    <input id="longitude" type="text" formControlName="lng" placeholder="longitude">
+
+    <button type="submit" class="slide-btn">Update Branch Now</button>
+  </form>
+</section>

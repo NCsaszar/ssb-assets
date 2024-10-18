@@ -1,0 +1,18 @@
+card_offer_id,card_offer_name,apr,credit_limit,card_offer_status
+1001,Cashback Rewards,5,3000,True
+1005,Student Cash Back,2,2000,True
+1009,Travel Rewards,20,8000,True
+1012,Premium Rewards,24,34,True
+1018,Standard Card,0,10000,False
+1023,Platinum Rewards,3,9000,True
+1031,Gold Card,12,12,False
+1047,Balance Transfer,2.4,10000,False
+1052,High Risk,99.94,500,False
+1060,Limited Time Offer,2,9,True
+1075,Exclusive Offer,2,1000000,True
+1082,Silver Card,12,156,False
+1091,Basic Card,2,2,True
+1103,Elite Card,222,222,True
+1110,Introductory Offer,0,0,False
+1125,Legacy Card,0,0,False
+1132,Wedding Card,24,2000,True

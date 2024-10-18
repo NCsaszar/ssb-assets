@@ -1,0 +1,8 @@
+<form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+  <button type="button" mat-raised-button (click)="fileInput.click()">Choose File for Account Upload</button>
+  <input hidden (change)="onFileSelected($event)" #fileInput type="file" accept=".csv, .xlsx">
+  <span class="file-name">{{selectedFile?.name}}</span>
+  <button type="submit" [disabled]="!selectedFile">Upload</button>
+</form>
+
+<mat-progress-bar *ngIf="uploading" mode="determinate" [value]="uploadProgress"></mat-progress-bar>

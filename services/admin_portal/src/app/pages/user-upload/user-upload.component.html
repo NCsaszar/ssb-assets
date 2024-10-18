@@ -1,0 +1,25 @@
+<div class="user-upload">
+  <div class="container" (drop)="onFileDropped($event)" (dragover)="onDragOver($event)">
+    <input type="file" #fileDropRef id="fileDropRef" multiple (change)="fileBrowseHandler($event)"
+    accept=".csv">
+    <mat-icon class="arrow">file_upload</mat-icon>
+    <h3>Drag and drop csv file here</h3>
+    <h3>or</h3>
+    <br>
+    <label for="fileDropRef">Browse for file</label>
+  </div>
+  <div class="files-list">
+    <div class="single-file" *ngFor="let wrapper of files; let i = index" (click)="openCsvFile(wrapper.file)">
+      <mat-icon class="file">insert_drive_file</mat-icon>
+      <div class="info">
+        <h4 class="name">
+          {{ wrapper.file.name }}
+        </h4>
+        <p class="size">
+          {{ formatBytes(wrapper.file.size) }}
+        </p>
+        <app-progress [progress]="wrapper.progress"></app-progress>
+      </div>
+    </div>
+  </div>
+</div>

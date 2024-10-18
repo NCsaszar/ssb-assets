@@ -1,0 +1,127 @@
+<form
+  class="account-form-container"
+  [formGroup]="accountForm"
+  (ngSubmit)="createAccount()"
+>
+  <mat-card>
+    <mat-card-header class="form-card-header">
+      <mat-card-title class="form-card-title">Open New Account</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+      <mat-form-field class="mat-50">
+        <mat-label>Account Type</mat-label>
+        <mat-select formControlName="accountType">
+          @for (accountType of accountTypes; track accountType) {
+          <mat-option [value]="accountType.value">{{
+            accountType.viewValue
+          }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Select User</mat-label>
+        <mat-select formControlName="user">
+          @for (user of users; track user) {
+          <mat-option [value]="user.userId">{{ user.username }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>First Name</mat-label>
+        <input
+          formControlName="firstName"
+          matInput
+          placeholder="Enter First Name..."
+        />
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Last Name</mat-label>
+        <input
+          formControlName="lastName"
+          matInput
+          placeholder="Enter Last Name..."
+        />
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Date of Birth</mat-label>
+        <input formControlName="dob" matInput [matDatepicker]="picker" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker
+          #picker
+          startView="year"
+          [startAt]="startDate"
+        ></mat-datepicker>
+        <mat-error *ngIf="accountForm.get('dob')?.errors?.['required']">
+          Date of Birth is required.
+        </mat-error>
+        <mat-error *ngIf="accountForm.get('dob')?.errors?.['tooYoung']">
+          Must be at least 13 years old.
+        </mat-error>
+        <mat-error *ngIf="accountForm.get('dob')?.errors?.['tooOld']">
+          Age cannot exceed 150 years.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Email</mat-label>
+        <input
+          formControlName="email"
+          type="email"
+          matInput
+          placeholder="Enter Email..."
+        />
+      </mat-form-field>
+
+      <mat-divider class="test"></mat-divider>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Employement Status</mat-label>
+        <mat-select formControlName="employment">
+          @for (employment of employments; track employment) {
+          <mat-option [value]="employment.value">{{
+            employment.viewValue
+          }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Gross Income</mat-label>
+        <input
+          formControlName="income"
+          type="number"
+          matInput
+          placeholder="Enter Gross Income..."
+        />
+      </mat-form-field>
+
+      <div class="button-container">
+        <button
+          class="save-button"
+          mat-raised-button
+          type="submit"
+          color="primary"
+        >
+          Save
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="cancelAccountCreation()"
+        >
+          Cancel
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>

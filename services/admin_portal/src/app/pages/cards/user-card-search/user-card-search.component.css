@@ -1,0 +1,122 @@
+.user-search {
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 200px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    
+    
+}
+
+.search, .filter{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.search mat-form-field{
+    margin-right: 20px;
+}
+
+.filter mat-form-field{
+    margin-right: 40px;
+}
+
+.user-search mat-card {
+    margin: 1%;
+    width: 85%;
+    background-color: #262626;
+    border-top: 5px solid #ecb300;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    min-height: 900px;
+    
+    
+}
+
+.status-cell {
+    display: inline-block;
+    border-radius: 20px; /* Adjust the border-radius as needed */
+    padding: 5px 10px; /* Adjust the padding as needed */
+    color: white; /* Text color */
+    font-weight: bold; /* Text boldness */
+  }
+
+.user-search .mat-table1 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    max-height: 680px;
+    overflow-y: scroll;
+    background-color: #262626;
+    transition: all .5s ease-in-out;
+}
+
+.user-search .mat-table1 th,
+.user-search .mat-table1 td {
+    border: 1px solid #000000;
+    text-align: left;
+    padding: 8px;
+}
+
+.user-search .mat-table1 th {
+    background-color: #171c17;
+    color: gold;
+}
+
+.user-search .no-loans-message {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+    margin-top: 20px;
+}
+
+.user-search button {
+    margin-top: 20px;
+    width: 10%;
+    margin-bottom: 20px;
+}
+
+.component-container-credit-offers-user-search .search .filter{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.user-search input{
+    margin-top: 20px;
+}
+
+.user-search select{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+
+
+.user-search h1 {
+    color: gold;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.mat-card-title {
+    color: #f4d874;
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .user-search .user-search-container {
+        width: 90%;
+        max-width: none;
+    }
+}

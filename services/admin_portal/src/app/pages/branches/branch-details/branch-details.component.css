@@ -1,0 +1,95 @@
+.branch-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 220px;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.branch-details-title {
+  border-top: 2px solid var(--primary);
+  border-bottom: 2px solid var(--primary);
+  color: var(--light);
+  font-size: 200%;
+  margin-bottom: 5vh;
+  width: 75vw;
+  text-align: center;
+}
+
+.branch-details-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2vh;
+  width: 75vw;
+  height: 350px;
+}
+
+.branch-details-card {
+  border: 2px solid var(--primary);
+  border-radius: 5px;
+  min-width: 25vw;
+  height: 325px;
+  margin: 10px;
+  padding: 10px;
+  color: var(--light);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.branch-details-card mat-card-header {
+  border-bottom: 1px solid var(--primary);
+  padding: 1vh;
+}
+
+.branch-header-image {
+  background-image: url("../../../../assets/bank-logo.png");
+  background-size: cover;
+  border-radius: 0%;
+  margin-bottom: 0px;
+  min-height: 100%;
+  height: 50px;
+  width: 40px;
+}
+
+.branch-details-table-card {
+  border-radius: 5px;
+  min-width: 25vw;
+  min-height: 20vh;
+  margin: 10px;
+  padding: 10px;
+  color: var(--light);
+  width: 75vw;
+}
+
+.update-branch-modal-toggle-section {
+  border: 1px solid var(--primary);
+  margin: 20px;
+  background-color: var(--gray);
+  color: var(--light);
+}
+
+@media screen and (max-width: 1200px) {
+  .branch-details {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .branch-details-title {
+    text-align: center;
+  }
+
+  .branch-details-container {
+    flex-direction: column;
+  }
+
+  .branch-details-card,
+  .branch-details-table-card {
+    width: 75vw;
+  }
+}

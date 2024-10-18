@@ -1,0 +1,22 @@
+<section class="update-branch-general-section">
+  <h2 class="update-branch-general-title">Update Branch</h2>
+  <form class="update-branch-general-form" [formGroup]="updateBranchGeneralForm" (submit)="updateBranch()">
+
+    <label for="branchCode">Branch Code</label>
+    <input id="branchCode" type="text" formControlName="branchCode" placeholder="branch code">
+
+    <label for="branchName">Branch Name</label>
+    <input id="branchName" type="text" formControlName="branchName" placeholder="branch name">
+
+    <label for="branchManager">Branch Manager</label>
+    <input id="branchManager" type="text" formControlName="branchManager" placeholder="branch manager">
+
+    <label for="phoneNumber">Phone Number</label>
+    <input id="phoneNumber" type="text" formControlName="phoneNumber" placeholder="phone number">
+
+    <label for="email">Email</label>
+    <input id="email" type="email" formControlName="email" placeholder="email">
+
+    <button type="submit" class="slide-btn">Update Branch Now</button>
+  </form>
+</section>

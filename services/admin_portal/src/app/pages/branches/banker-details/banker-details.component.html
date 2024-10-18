@@ -1,0 +1,27 @@
+<div class="banker-details" *ngIf="banker">
+  <h2 class="banker-details-title">Secure Sentinel Team Member</h2>
+
+  <div class="banker-details-container">
+    <mat-card class="banker-details-card">
+      <mat-card-header>
+        <div mat-card-avatar class="banker-header-image"></div>
+        <mat-card-title>General Information</mat-card-title>
+        <mat-card-subtitle>put bank branch name here </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="branch-detail">Name: {{ banker.firstName }} {{ banker.lastName }}</p>
+        <p>Job Title: {{ banker.jobTitle }}</p>
+        <p>Email: {{ banker.email }}</p>
+        <p>Phone Number: {{ banker.phoneNumber }}</p>
+        <!-- services -->
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>UPDATE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <article class="banker-details-table-card">
+    <app-appointment [bankerId]="bankerId"></app-appointment>
+  </article>
+</div>

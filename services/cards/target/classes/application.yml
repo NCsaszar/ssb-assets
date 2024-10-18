@@ -1,0 +1,76 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/CardsLoansStocks}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:password}
+  batch:
+    jdbc:
+      initialize-schema: always
+    job:
+      enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  application:
+    name: cardsloans-service
+  profiles:
+    active: default
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: securesentinelcardloan@gmail.com
+    password: nloqdcgqlicslhdl
+    properties:
+      smtp:
+        auth: true
+        starttls:
+          enable: true
+
+
+server:
+  port: 8070
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:8761/eureka/}
+  instance:
+    prefer-ip-address: true
+
+cloud:
+  gateway:
+    discover:
+      locator:
+        enabled:true
+
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+
+management:
+  endpoint:
+    metrics:
+      enabled: true
+
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+
+jwt:
+  secret-key: UiynOe89DRPIBdPzuyiQ90FN4skkGOkGUO+aqW8ks3c=
+
+gateway:
+  url: ${GATEWAY_URL:localhost:8765}
+
+
+

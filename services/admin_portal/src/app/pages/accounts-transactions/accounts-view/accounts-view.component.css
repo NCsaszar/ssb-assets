@@ -1,0 +1,132 @@
+.component-container {
+  min-height: 75vh;
+  display: flex;
+  justify-content: center;
+  margin-left: 200px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+mat-card {
+  margin: 1%;
+  width: 85%;
+  background-color: #262626;
+
+  border-top: 5px solid #ecb300;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+table {
+  background-color: #262626;
+}
+
+th {
+  background-color: rgb(27, 27, 27) !important;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #f4d874;
+}
+
+mat-paginator {
+  background-color: #262626 !important;
+}
+.mat-card-title {
+  color: #f4d874;
+  font-size: 1.5rem;
+}
+
+.mat-divider {
+  border-top-color: rgb(214, 214, 214);
+  margin-bottom: 2%;
+}
+
+.small-button {
+  font-size: 0.8rem;
+  min-height: auto;
+  line-height: normal;
+  margin: 1%;
+  width: 80%;
+}
+.green-button {
+  color: #4caf50 !important;
+}
+
+.green-button:hover {
+  background-color: #42af4846 !important;
+}
+
+.status-true {
+  color: black;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: #cbf474;
+  border-radius: 20px;
+  padding: 3px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+}
+
+.status-false {
+  color: black;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: #ff6b6b;
+  border-radius: 20px;
+  padding: 3px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+}
+
+.filters-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 1%;
+}
+
+mat-form-field {
+  flex-grow: 1;
+}
+.date-hint {
+  color: white;
+}
+
+.mat-datepicker-toggle {
+  color: #ebb300 !important;
+  --mat-icon-button-state-layer-color: #ebb300;
+}
+.mat-mdc-form-field-icon-suffix {
+  color: #ebb300 !important;
+  --mat-icon-button-state-layer-color: #ebb300;
+}
+
+.filter-box {
+  display: flex;
+  padding-left: 2%;
+  padding-right: 2%;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.slide-toggle {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1%;
+}
+.clear-filters {
+  display: flex;
+  justify-content: center;
+  color: #f4d874 !important;
+}
+.red-button {
+  color: #ff5d52 !important;
+}
+.search-container {
+  display: flex;
+  gap: 10px;
+}

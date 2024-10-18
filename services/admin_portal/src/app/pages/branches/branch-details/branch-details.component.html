@@ -1,0 +1,62 @@
+<div class="branch-details" *ngIf="branch">
+  <h2 class="branch-details-title">{{ branch.branchName }}</h2>
+  <div class="branch-details-container">
+
+    <mat-card class="branch-details-card">
+      <mat-card-header>
+        <div mat-card-avatar class="branch-header-image"></div>
+        <mat-card-title>General Information</mat-card-title>
+        <mat-card-subtitle>{{ branch.branchName }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="branch-detail">Branch Code: {{ branch.branchCode }}</p>
+        <p>Branch Manager: {{ branch.branchManager }}</p>
+        <p>Email: {{ branch.email }}</p>
+        <p>Phone Number: {{ branch.phoneNumber }}</p>
+        <p>
+          Description: desc. of the branch.
+        </p>
+        <!-- services -->
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-button
+          *ngIf="branchId"
+          (click)="openGeneralDialog(branchId)"
+          class="update-branch-general-modal-toggle-btn"
+        >UPDATE</button>
+      </mat-card-actions>
+    </mat-card>
+    
+    <mat-card class="branch-details-card">
+      <mat-card-header>
+        <div mat-card-avatar class="branch-header-image"></div>
+        <mat-card-title>Location Information</mat-card-title>
+        <mat-card-subtitle>{{ branch.branchName }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="branch-detail">Address 1: {{ branch.address1 }}</p>
+        <p class="branch-detail">Address 2: {{ branch.address2 }}</p>
+        <p class="branch-detail">City: {{ branch.city }}</p>
+        <p class="branch-detail">State: {{ branch.state }}</p>
+        <p class="branch-detail">Postal Code: {{ branch.postalCode }}</p>
+        <p class="branch-detail">Country: {{ branch.country }}</p>
+        <p class="branch-detail">Latitude: {{ branch.lat }}</p>
+        <p class="branch-detail">Longitude: {{ branch.lng }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-button
+          *ngIf="branchId"
+          (click)="openLocationDialog(branchId)"
+          class="update-branch-location-modal-toggle-btn"
+        >UPDATE</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+
+  <article class="branch-details-table-card">
+    <app-banker [branchId]="branchId"></app-banker>
+  </article>
+</div>

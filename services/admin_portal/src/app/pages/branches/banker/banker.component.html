@@ -1,0 +1,54 @@
+<div class="banker-component">
+  <h1 class="banker-title">{{title}}</h1>
+
+  <div class="banker-top-bar">
+    <section class="create-banker-modal-toggle-section">
+      <button mat-button (click)="openDialog()" class="create-banker-modal-toggle-btn">Create New Banker</button>
+    </section>
+
+    <mat-form-field class="banker-filter">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Harvey Birdman" #input>
+    </mat-form-field>
+  </div>
+  
+  <div class="mat-elevation-z8 banker-table">
+    <table mat-table [dataSource]="dataSource" matSort>
+      
+      <ng-container matColumnDef="code">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="banker-table-header"> Name </th>
+        <td mat-cell *matCellDef="let element" class="banker-table-text"> {{element.firstName}} {{element.lastName}}</td>
+      </ng-container>
+      
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="banker-table-header"> Job Title </th>
+        <td mat-cell *matCellDef="let element" class="banker-table-text"> {{element.jobTitle}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="link">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="banker-table-header"> Details </th>
+        <td mat-cell *matCellDef="let element">
+          <button class="banker-details-link" [routerLink]="['/bankerdetails', element.bankerId]">Learn More</button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="banker-table-header"> Delete </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="warn" class="banker-table-delete" (click)="deleteBanker(element.bankerId)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users" class="banker-paginator"></mat-paginator>
+  </div>
+</div>

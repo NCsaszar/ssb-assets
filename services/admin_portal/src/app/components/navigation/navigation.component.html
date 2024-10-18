@@ -1,0 +1,26 @@
+<nav class="nav">
+  <ng-container *ngIf="showModal">
+    <!-- <app-sign-in-modal *ngIf="isSigningIn" (close)="showModal=false" (switchToSignUp)="switchModal()"></app-sign-in-modal> -->
+    <!-- <app-sign-up-modal *ngIf="!isSigningIn" (close)="showModal=false" (switchToSignIn)="switchModal()"></app-sign-up-modal> -->
+  </ng-container>
+  <a routerLink="/">
+    <div class="nav-logo-brand">
+      <img src="assets/bank-logo.png" alt="Bank Logo" class="nav-logo" />
+      <div class="brand-name">
+        <span>SecureSentinel</span>
+        <span>Bank</span>
+      </div>
+    </div>
+  </a>
+  <!-- <div class="nav-items" [ngClass]="{'visible': isMenuVisible}">
+    <a routerLink="about"><button>About</button></a>
+    <a routerLink="careers"><button>Careers</button></a>
+    <a routerLink="help"><button>Help</button></a>
+  </div> -->
+  <button class="golden-btn" id="login_btn" (click)="handleSignClick()">
+    {{ authService.isLoggedIn() ? "Sign Out" : "Sign In" }}
+  </button>
+  <div class="hamburger-menu" (click)="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+</nav>

@@ -1,0 +1,99 @@
+<div id="admin-portal">
+  <!-- MUI Table -->
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title class="mat-card-title">Users</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <div id="user-search">
+      <label class="user-search-label" for="searchCriterion">Search By:</label>
+      <select class="user-searchbar" id="searchCriterion" [(ngModel)]="searchCriterion" aria-label="Search By">
+        <option value="username">Username</option>
+        <option value="email">Email</option>
+        <option value="firstName">First Name</option>
+        <option value="lastName">Last Name</option>
+      </select>
+      <input class="user-searchbar" type="text" id="searchbar-fieled" [(ngModel)]="searchTerm"
+        (ngModelChange)="searchTermSubject.next($event)" placeholder="Search" />
+      <!-- <button (click)="toggleSortCriteria('isActive')">Sort by Active Status</button>
+      <button (click)="toggleSortCriteria('dateCreated')">Sort by Date Created</button> -->
+
+    </div>
+    <table mat-table [dataSource]="users" class="search-user-table">
+      <!-- Username Column -->
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef class="user-table-header">
+          Username
+          <mat-icon class="sort-icon" (click)="toggleSortCriteria('username')">swap_vert</mat-icon>
+        </th>
+        <td class="user-table-content-cell" mat-cell *matCellDef="let user">
+          {{ user.username }}
+        </td>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef class="user-table-header">
+          Email
+          <mat-icon class="sort-icon" (click)="toggleSortCriteria('email')">swap_vert</mat-icon>
+        </th>
+        <td mat-cell *matCellDef="let user">{{ user.email }}</td>
+      </ng-container>
+
+      <!-- First Name Column -->
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef class="user-table-header">
+          First Name
+          <mat-icon class="sort-icon" (click)="toggleSortCriteria('firstName')">swap_vert</mat-icon>
+        </th>
+        <td mat-cell *matCellDef="let user">{{ user.firstName }}</td>
+      </ng-container>
+
+      <!-- Last Name Column -->
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef class="user-table-header">
+          Last Name
+          <mat-icon class="sort-icon" (click)="toggleSortCriteria('lastName')">swap_vert</mat-icon>
+        </th>
+        <td mat-cell *matCellDef="let user">{{ user.lastName }}</td>
+      </ng-container>
+
+      <!-- Date Created Column -->
+      <ng-container matColumnDef="dateCreated">
+        <th mat-header-cell *matHeaderCellDef class="user-table-header">
+          Date Created
+          <mat-icon class="sort-icon" (click)="toggleSortCriteria('dateCreated')">swap_vert</mat-icon>
+        </th>
+        <td mat-cell *matCellDef="let user">
+          {{ user.dateCreated | date : "medium" }}
+        </td>
+      </ng-container>
+
+      <!-- Is Active Column -->
+      <ng-container matColumnDef="isActive">
+        <th mat-header-cell *matHeaderCellDef class="user-table-header">
+          Is Active
+          <mat-icon class="sort-icon" (click)="toggleSortCriteria('isActive')">swap_vert</mat-icon>
+        </th>
+        <td mat-cell *matCellDef="let user">
+          {{ user.isActive ? "Active" : "Inactive" }}
+        </td>
+      </ng-container>
+
+      <!-- Table Rows -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="openUserModal(row)"></tr>
+    </table>
+  </mat-card>
+
+  <div *ngIf="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+  <button *ngIf="!loading && moreRecordsAvailable" (click)="fetchUsers(true)" class="golden-btn">
+    Load More Users
+  </button>
+
+  <!-- Modal Component Placement -->
+  <app-user-details-modal [key]="modalKey" [user]="selectedUser" [show]="showUserModal"
+    (closeEvent)="handleUserUpdate($event)"></app-user-details-modal>
+</div>

@@ -1,0 +1,96 @@
+pipeline {
+    agent any
+    environment {
+        CLUSTER = 'SSB-Cluster'
+        SERVICE = 'cards'
+        AWS_DEFAULT_REGION = 'us-east-1'
+        AWS_ACCOUNT_ID = '4711-1278-7100'
+        AWS_ECR_REPO = 'cardsloans-service'
+        IMAGE_TAG = "${env.BUILD_NUMBER}"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/feature']],
+                    userRemoteConfigs: [[
+                        credentialsId: 'http-git-creds',
+                        url: 'https://git1.smoothstack.com/cohorts/2023/2023_12_11_java/organizations/the-ledger-legends/cardsloansservice.git'
+                    ]]
+                ])
+            }
+        }
+
+         stage('SonarQube Analysis') {
+                      steps {
+                        script {
+                          def scannerHome = tool 'SonarScanner';
+                          withSonarQubeEnv('Sonar') {
+                            sh "${scannerHome}/bin/sonar-scanner -X"
+                          }
+                        }
+                      }
+                    }
+                    stage("Quality Gate") {
+                      steps {
+                        timeout(time: 10, unit: 'MINUTES') {
+                            waitForQualityGate abortPipeline: true
+                            script{
+                                def qg = waitForQualityGate()
+                                if(qg.status != 'OK'){ // If quality gate was not met, then present error
+                                    error "Pipeline aborted due to quality gate failure: ${qg.status}"
+                                }
+                            }
+                        }
+                      }
+                    }
+                    stage('Build Docker Image'){
+                      steps{
+                        script{
+                          sh "docker build -f Dockerfile -t ${AWS_ECR_REPO}:${IMAGE_TAG} ."
+                          sh "docker tag ${AWS_ECR_REPO}:${IMAGE_TAG} public.ecr.aws/o9d5t0i3/${AWS_ECR_REPO}:${IMAGE_TAG}"
+                        }
+                      }
+                    }
+
+                    stage('Push to ECR') {
+                      steps{
+                        script{
+                            withCredentials([[
+                            $class: 'AmazonWebServicesCredentialsBinding',
+                            credentialsId: '6c93392c-6fd0-48bf-b70e-2c398fc6a0ef',
+                            usernameVariable: 'AWS_ACCESS_KEY_ID',
+                            passwordVariable: 'AWS_SECRET_ACCESS_KEY'
+                          ]]){
+                              sh "aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/o9d5t0i3"
+                              sh "docker push public.ecr.aws/o9d5t0i3/${AWS_ECR_REPO}:${IMAGE_TAG}"
+                          }
+                        }
+                      }
+                    }
+                    stage('Deploy to ECS') {
+                        steps {
+                            withAWS(credentials: '6c93392c-6fd0-48bf-b70e-2c398fc6a0ef', region: 'us-east-1') {
+                              script{
+                                sh 'aws ecs update-service --cluster $CLUSTER --service $SERVICE --force-new-deployment'
+                              }
+                            }
+                        }
+                    }
+
+                  }
+                    post {
+                      success {
+                        script {
+                          sh "docker rmi ${AWS_ECR_REPO}:${IMAGE_TAG}"
+                          // sh "docker rmi ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${AWS_ECR_REPO}:${IMAGE_TAG}"
+                        }
+                      }
+                      failure {
+                        echo 'Push to ECR failed, skipping Docker image cleanup'
+                      }
+                    }
+                }
+

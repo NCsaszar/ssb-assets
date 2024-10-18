@@ -1,0 +1,60 @@
+<div class="branch-component">
+  <h1 class="branch-title">{{title}}</h1>
+
+  <div class="branch-actions-container">
+    <section class="create-branch-modal-toggle-section">
+      <button mat-button (click)="openDialog()" class="create-branch-modal-toggle-btn">Create New Branch</button>
+    </section>
+    
+    <mat-form-field class="branch-filter">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. BANK1" #input>
+    </mat-form-field>
+  </div>
+    
+    
+  <div class="mat-elevation-z8 branch-table">
+    <table mat-table [dataSource]="dataSource" matSort>
+      
+      <ng-container matColumnDef="code">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="branch-table-header"> Code </th>
+        <td mat-cell *matCellDef="let element" class="branch-table-text"> {{element.branchCode}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="branch-table-header"> Name </th>
+        <td mat-cell *matCellDef="let element" class="branch-table-text"> {{element.branchName}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="link">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="branch-table-header"> Details </th>
+        <td mat-cell *matCellDef="let element">
+          <button class="branch-details-link" [routerLink]="['/branchdetails', element.branchId]">Learn More</button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="branch-table-header"> Delete </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="warn" class="branch-table-delete" (click)="deleteBranch(element.branchId)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users" class="branch-paginator"></mat-paginator>
+  </div>
+
+  <article class="branch-creation-upload">
+    <app-branch-creation-upload></app-branch-creation-upload >
+  </article>
+
+</div>

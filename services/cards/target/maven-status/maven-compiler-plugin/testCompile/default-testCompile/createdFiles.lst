@@ -1,0 +1,8 @@
+com/SecureSentinel/CardsLoans/Service/ApiServiceTest.class
+com/SecureSentinel/CardsLoans/Service/CardServiceTest.class
+com/SecureSentinel/CardsLoans/Service/LoanServiceTest.class
+com/SecureSentinel/CardsLoans/Service/EmailServiceTest.class
+com/SecureSentinel/CardsLoans/Controller/CardControllerImplTest.class
+com/SecureSentinel/CardsLoans/Service/StockServiceTest.class
+com/SecureSentinel/CardsLoans/Service/JwtServiceTest.class
+com/SecureSentinel/CardsLoans/CardLoanStockApplicationTests.class

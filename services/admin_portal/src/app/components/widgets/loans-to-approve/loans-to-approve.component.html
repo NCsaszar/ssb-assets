@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="header">
+      <h2>Loans to Approve: {{ loans.length }}</h2>
+    </div>
+    <div *ngIf="loans.length > 0 else noLoans">
+      <div *ngFor="let loan of loans" class="loan-item">
+        <p>UserLoan ID: {{ loan.userLoanID }}</p>
+        <p>User ID: {{ loan.userID }}</p>
+        <p>Amount: {{ loan.loanAmount }}</p>
+        <!-- <p><a href="http://localhost:8765/CARDSLOANS-SERVICE/api/v1/loans/admin/approve" [queryParams]="{token: authToken}">Approve Loan</a></p> -->
+        <hr>
+      </div>
+    </div>
+    <ng-template #noLoans>
+      <p>No loans need approving.</p>
+    </ng-template>
+  </div>
+  

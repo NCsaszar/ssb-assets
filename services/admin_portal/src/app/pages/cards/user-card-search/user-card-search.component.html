@@ -1,0 +1,122 @@
+<div class="component-container credit-offers user-search">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title class="mat-card-title">User Search</mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+
+        <div class="card-list">
+            <div class="search">
+                    <mat-card-header>
+                        <mat-card-title>Search for User By:</mat-card-title>
+                    </mat-card-header>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Search By</mat-label>
+                        <select matNativeControl [(ngModel)]="searchCriterion" aria-label="Search By">
+                            <option value="username">Username</option>
+                            <option value="email">Email</option>
+                            <option value="firstName">First Name</option>
+                            <option value="lastName">Last Name</option>
+                        </select>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Search</mat-label>
+                        <input matInput type="text" [(ngModel)]="searchTerm" (ngModelChange)="search()" placeholder="Search" />
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" *ngIf="searchResults.length > 0">
+                        <mat-label>Select User</mat-label>
+                        <select matNativeControl [(ngModel)]="selectedUser" (change)="getUserCards()">
+                            <option *ngFor="let user of searchResults" [ngValue]="user">{{ user.firstName }} {{ user.lastName }} {{ user.username }}</option>
+                        </select>
+                    </mat-form-field>
+               
+            </div>
+        
+            <div class="filter">
+              
+                    <mat-card-header>
+                        <mat-card-title>Filter Cards</mat-card-title>
+                    </mat-card-header>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Filter By</mat-label>
+                        <select matNativeControl [(ngModel)]="filterCriterion" aria-label="Filter By">
+                            <option value="cardID">Card ID</option>
+                            <option value="accountID">Account ID</option>
+                            <option value="userID">User ID</option>
+                        </select>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter value</mat-label>
+                        <input matInput type="text" [(ngModel)]="filterValue" placeholder="Enter value" />
+                    </mat-form-field>
+                    <button mat-raised-button color="primary" (click)="applyFilter()">Apply Filter</button>
+             
+            </div>
+        
+            <div class="user-search-container">
+                <div class="card-list">
+                    <ng-container *ngIf="userCards.data.length > 0; else noCards">
+                        <table mat-table [dataSource]="userCards" class="mat-table1">
+                            <ng-container matColumnDef="cardID">
+                                <th mat-header-cell *matHeaderCellDef> Card ID </th>
+                                <td mat-cell *matCellDef="let card"> {{ card.cardID }} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="accountID">
+                                <th mat-header-cell *matHeaderCellDef> Account ID </th>
+                                <td mat-cell *matCellDef="let card"> {{ card.accountID }} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="cardNumber">
+                                <th mat-header-cell *matHeaderCellDef> Card Number </th>
+                                <td mat-cell *matCellDef="let card"> {{ card.cardNumber }} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="expirationDate">
+                                <th mat-header-cell *matHeaderCellDef> Expiration Date </th>
+                                <td mat-cell *matCellDef="let card"> {{ card.expirationDate | date: 'medium' }}
+                                </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="startDate">
+                                <th mat-header-cell *matHeaderCellDef> Start Date </th>
+                                <td mat-cell *matCellDef="let card"> {{ card.startDate | date: 'medium' }} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="endDate">
+                                <th mat-header-cell *matHeaderCellDef> End Date </th>
+                                <td mat-cell *matCellDef="let card"> {{ card.endDate | date: 'medium' }} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="cardStatus">
+                                <th mat-header-cell *matHeaderCellDef> Card Status </th>
+                                <td mat-cell *matCellDef="let card">
+                                  <div class="status-cell" [style.background-color]="card.cardStatus ? 'green' : 'red'">
+                                    {{ card.cardStatus ? 'Active' : 'Inactive' }}
+                                  </div>
+                                </td>
+                              </ng-container>
+
+                            <ng-container matColumnDef="action">
+                                <th mat-header-cell *matHeaderCellDef> Action </th>
+                                <td mat-cell *matCellDef="let card">
+                                  <button mat-button *ngIf="card.cardStatus" (click)="disableCard(card.cardID)">Deactivate</button>
+                                  <button mat-button *ngIf="!card.cardStatus" (click)="activateCard(card.cardID)">Activate</button>
+                                </td>
+                              </ng-container>
+
+                              <tr mat-header-row *matHeaderRowDef="['cardID', 'accountID', 'cardNumber', 'expirationDate', 'startDate', 'endDate','cardStatus', 'action']"></tr>
+                              <tr mat-row *matRowDef="let row; columns: ['cardID', 'accountID', 'cardNumber', 'expirationDate', 'startDate', 'endDate','cardStatus', 'action'];"></tr>
+                              
+                        </table>
+                    </ng-container>
+
+                    <ng-template #noCards>
+                        <p class="no-loans-message">No cards available for the selected user.</p>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+    </mat-card>
+</div>

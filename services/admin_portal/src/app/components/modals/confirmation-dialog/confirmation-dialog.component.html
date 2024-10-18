@@ -1,0 +1,11 @@
+<div class="deletion-dialog-wrapper">
+  <h2 mat-dialog-title class="modal-title">Delete User</h2>
+  <mat-dialog-content>
+    <p>Are you sure you want to delete this user?</p>
+  </mat-dialog-content>
+  <input matInput type="password" [(ngModel)]="password" placeholder="Confirm password" />
+  <mat-dialog-actions>
+    <app-primary-btn buttonText="Delete" (click)="onConfirm()"> </app-primary-btn>
+    <app-secondary-btn buttonText="Cancel" (click)="onCancel()"> </app-secondary-btn>
+  </mat-dialog-actions>
+</div>

@@ -1,0 +1,84 @@
+.component-container.credit-offers {
+  min-height: 75vh;
+  display: flex;
+  justify-content: center;
+  margin-left: 200px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.credit-offers mat-card {
+  margin: 1%;
+  width: 85%;
+  background-color: #262626;
+  border-top: 5px solid #ecb300;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.credit-offers .mat-table1 {
+  width: 100%; 
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  max-height: 680px;
+  min-height: 680px;
+  overflow-y: scroll;
+  background-color: #262626;
+  transition: all .5s ease-in-out;
+}
+
+.credit-offers .mat-table1 th,
+.credit-offers .mat-table1 td {
+  border: 1px solid #000000;
+  text-align: left;
+  padding: 8px;
+}
+
+.credit-offers .mat-table1 tr:nth-child(even) {}
+
+.credit-offers .mat-table1 th {
+  background-color: #171c17;
+  color: gold;
+}
+
+.credit-offers .credit-offers-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.credit-offers button {
+  margin-top: 20px;
+  width: 20%;
+  margin-bottom: 20px;
+}
+
+.credit-offers h1 {
+  color: gold;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.mat-card-title {
+  color: #f4d874;
+  font-size: 1.5rem;
+}
+
+
+.status-cell {
+  display: inline-block;
+  border-radius: 20px; /* Adjust the border-radius as needed */
+  padding: 5px 10px; /* Adjust the padding as needed */
+  color: white; /* Text color */
+  font-weight: bold; /* Text boldness */
+}
+
+@media screen and (max-width: 768px) {
+  .credit-offers .credit-offers-container {
+    width: 90%;
+    max-width: none;
+  }
+}

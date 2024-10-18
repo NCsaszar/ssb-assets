@@ -1,0 +1,169 @@
+#admin-portal {
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    color: ivory;
+    margin: 20px;
+}
+
+#user-search {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background: #262626;
+    color: ivory;
+}
+
+.user-searchbar {
+    padding: 0.4em;
+    border-radius: 0.3em;
+    border: 1px solid #FBD660;
+    background: #1C1C1C;
+    color: ivory;
+    width: -webkit-fill-available;
+    transition: all 1s ease-in-out;
+    text-align: center;
+    width: auto;
+}
+.user-search-label {
+    margin-right: 10px;
+    background: linear-gradient(202deg, #c25c09, #e3a221, #fef1a2, #d8a12a, #bd5a09);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: larger;
+    font-weight: 600;
+}
+#searchCriterion{
+    margin-right: 10px;
+}
+
+#searchbar-fieled{
+    padding: 0.5em;
+    min-width: 300px;
+}
+
+.user-search select{
+    border-top-right-radius: 0;
+}
+
+.user-searchbar:hover:focus {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    border: 1px solid #ffc640;
+}
+
+#user-search button {
+    padding: 0.6em 0.8em;
+    border-radius: 0.3em;
+    background: #1C1C1C;
+    color: ivory;
+    border: 1px solid #FBD660;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    width: 200px;
+    font-size: medium;
+    margin: 10px;
+    text-wrap: nowrap;
+}
+
+#user-search button:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    border: 1px solid #ffc640;
+    color: #ffc640;
+}
+
+.search-user-table {
+    background-color: #262626;
+    
+}
+
+.search-user-table td {
+    max-width: 200px;
+    cursor: pointer;
+    text-align: center;
+    background-color: rgb(65, 65, 65);
+    color: ivory;
+    font-size: larger;
+}
+
+.user-table-header {
+    color: #FBD660;
+    text-align: center;
+}
+
+.mat-card-title{
+    color: var(--title);
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 900px) {
+    .search-user-table td {
+        max-width: 50px;
+        height: 50px;
+    }
+
+    .user-search{
+        font-size: small;
+        padding: 0;
+        width: 80%;
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+    .search-user-table td {
+        max-width: 20px;
+        padding: 0;
+    }
+
+    .wrapper-search-user-table {
+        min-width: 350px;
+        overflow-y: scroll;
+    }
+}
+
+.golden-btn {
+    display: flex;
+    border-radius: .4em;
+    height: 2em;
+    line-height: 2em;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    text-wrap: nowrap;
+    background-image: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(110, 80, 20, .4), inset 0 -2px 5px 1px rgba(139, 66, 8, 1), inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+    border: 1px solid #a55d07;
+    color: #1c1c1c;
+    text-shadow: 0 2px 2px rgba(250, 227, 133, 1);
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    background-size: 100% 100%;
+    background-position: center;
+    text-shadow: 0 0 0 black;
+    margin-top: 15px;
+    font-size: medium;
+    padding: 0 20px 0 20px;
+}
+
+.golden-btn:hover:hover {
+    background-size: 150% 150%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23), inset 0 -2px 5px 1px #b17d10, inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+    border: 1px solid rgba(165, 93, 7, .6);
+    color: rgba(120, 50, 5, .8);
+    text-shadow: 1 0 0 black;
+}
+
+.sort-icon {
+    cursor: pointer;
+    vertical-align: middle; 
+    margin-left: 5px; 
+  }
+  

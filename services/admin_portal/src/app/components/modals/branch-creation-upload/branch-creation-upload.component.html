@@ -1,0 +1,22 @@
+<form [formGroup]="uploadForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+  <button type="button" mat-raised-button (click)="fileInput.click()">Choose CSV File for Branch Upload</button>
+  <input hidden (change)="onFileSelected($event)" #fileInput type="file" accept=".csv">
+  <span class="file-name">{{selectedFile?.name}}</span>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Duplicate Handling Strategy</mat-label>
+    <mat-select formControlName="duplicateHandlingStrategy">
+      <mat-option *ngFor="let option of duplicateHandlingOptions" [value]="option.value">
+        {{option.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!selectedFile || fileTooLarge">Upload</button>
+</form>
+
+<mat-progress-bar *ngIf="uploading" mode="determinate" [value]="uploadProgress"></mat-progress-bar>
+<span *ngIf="fileTooLarge" class="error-message">File size exceeds 50MB limit</span>
+
+<button type="button" mat-raised-button (click)="downloadReport('summary')">Download Summary Report</button>
+<button type="button" mat-raised-button (click)="downloadReport('validation_errors')">Download Validation Errors Report</button>

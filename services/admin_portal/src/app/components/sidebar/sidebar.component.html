@@ -1,0 +1,74 @@
+<nav class="sidebar__cont" @appear>
+  <ul class="sidebar">
+    <li class="sidebar__items" (click)="toggleGroup('user')">
+      <i class="fa fa-user-circle sidebar_icon" aria-hidden="true"></i>
+      <a>{{ getUsername() }}</a>
+      <a class="sidebar-details" *ngIf="expandedGroups['user']">
+        <div class="accounts-container">
+          <span class="nav-text" (click)="navigateTo('home'); $event.stopPropagation();">
+            Home
+          </span>
+          <span class="nav-text" (click)="navigateTo('admin-portal'); $event.stopPropagation();">
+            Manage Users
+          </span>
+          <span class="nav-text" (click)="navigateTo('user-upload'); $event.stopPropagation();">
+            Upload File
+          </span>
+        </div>
+      </a>
+    </li>
+
+    <li class="sidebar__items" (click)="toggleGroup('cards')">
+      <i class="fa fa-credit-card sidebar_icon" aria-hidden="true"></i>
+      <a class="sidebar__items-title">Cards</a>
+      <a class="sidebar-details" *ngIf="expandedGroups['cards']">
+        <div class="accounts-container">
+          <span class="nav-text" (click)="navigateTo('credit-offers'); $event.stopPropagation();">
+            Credit Offers
+          </span>
+          <span class="nav-text" (click)="navigateTo('user-card-view'); $event.stopPropagation();">
+            View User Cards
+          </span>
+        </div>
+      </a>
+    </li>
+
+    <li class="sidebar__items" (click)="toggleGroup('loans')">
+      <i class="fa fa-hand-holding-usd sidebar_icon" aria-hidden="true"></i>
+      <a>Loans</a>
+      <a class="sidebar-details" *ngIf="expandedGroups['loans']">
+        <div class="accounts-container">
+          <span class="nav-text" (click)="navigateTo('loan-offers'); $event.stopPropagation();">
+            Loan Offers
+          </span>
+          <span class="nav-text" (click)="navigateTo('user-loan-view'); $event.stopPropagation();">
+            View User Loans
+          </span>
+        </div>
+      </a>
+    </li>
+
+    <li class="sidebar__items" (click)="navigateTo('branch')">
+      <i class="fa fa-university sidebar_icon" aria-hidden="true"></i>
+      <a>Branches</a>
+    </li>
+    <!-- Modified Accounts Section -->
+    <li class="sidebar__items" (click)="toggleGroup('accounts')">
+      <i class="fa fa-chart-line sidebar_icon" aria-hidden="true"></i>
+      <a>Accounts</a>
+      <a class="sidebar-details" *ngIf="expandedGroups['accounts']">
+        <div class="accounts-container">
+          <span class="nav-text" (click)="navigateTo('open-account')">
+            Open Account
+          </span>
+          <span class="nav-text" (click)="navigateTo('accounts-view')">
+            View Accounts
+          </span>
+          <span class="nav-text" (click)="navigateTo('transaction-view')">
+            View Transactions
+          </span>
+        </div>
+      </a>
+    </li>
+  </ul>
+</nav>

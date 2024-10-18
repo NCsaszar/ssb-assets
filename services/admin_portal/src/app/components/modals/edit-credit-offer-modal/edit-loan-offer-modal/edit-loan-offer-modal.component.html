@@ -1,0 +1,48 @@
+<div class="modal">
+  <mat-card class="modal-content">
+    <mat-card-header>
+      <mat-card-title class="mat-card-title">{{ isEditing ? 'Edit Loan Offer' : 'Create Loan Offer' }}</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <form class="loan-offer-form" (ngSubmit)="onSubmit()" ngNativeValidate>
+      
+      <mat-form-field class="form-field">
+        <mat-label for="annualPercentageRate">Annual Percentage Rate:</mat-label>
+        <input matInput type="number" id="annualPercentageRate" name="annualPercentageRate" [(ngModel)]="data.offer.annualPercentageRate">
+      </mat-form-field>
+      
+      <mat-form-field class="form-field">
+        <mat-label for="termMonths">Term (Months):</mat-label>
+        <input matInput type="number" id="termMonths" name="termMonths" [(ngModel)]="data.offer.termMonths">
+      </mat-form-field>
+      
+      <mat-form-field class="form-field">
+        <mat-label for="maxAmount">Max Amount:</mat-label>
+        <input matInput type="number" id="maxAmount" name="maxAmount" [(ngModel)]="data.offer.maxAmount">
+      </mat-form-field>
+      
+      <mat-form-field class="form-field">
+        <mat-label for="minAmount">Min Amount:</mat-label>
+        <input matInput type="number" id="minAmount" name="minAmount" [(ngModel)]="data.offer.minAmount">
+      </mat-form-field>
+      
+        <mat-label>Status:</mat-label>
+        <mat-slide-toggle name="loanStatus" [(ngModel)]="data.offer.loanStatus"> Active </mat-slide-toggle>
+     
+      
+      <div class="form-field" *ngIf="!isEditing">
+        <mat-form-field>
+          <mat-label>Loan Type:</mat-label>
+          <select matNativeControl [(ngModel)]="data.offer.loanType.loanTypeName" id="loanType" name="loanType">
+            <option *ngFor="let loanType of loanTypes" [value]="loanType.loanTypeName">{{ loanType.loanTypeName }}</option>
+          </select>
+        </mat-form-field>
+      </div>
+      
+      <div class="user-service-save-changes-btn">
+        <app-secondary-btn [buttonText]="'Submit'" type="submit"></app-secondary-btn>
+        <app-secondary-btn [buttonText]="'Cancel'" (click)="onCancelClick()"></app-secondary-btn>
+      </div>
+    </form>
+  </mat-card>
+</div>

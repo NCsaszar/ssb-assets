@@ -1,0 +1,43 @@
+version: '3.3'
+
+services:
+  app:
+    image: 'docker-spring-boot-postgres:latest'
+    build:
+      context: .
+    container_name: CardsLoansService
+    depends_on:
+      - db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/CardsLoansStocks
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    ports:
+      - "8070:8070"
+
+
+  angular-frontend:
+      image: 'testnginxangular:latest'
+      ports:
+        - '81:81'
+  api-gateway:
+      image: 'api-gateway:latest'
+      ports:
+        - '8765:8765'
+  eureka-server:
+      image: 'eureka-server:latest'
+      ports:
+      - '8761:8761'
+
+  db:
+    image: postgres:alpine
+    container_name: db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=CardsLoansStocks
+    ports:
+      - "5433:5432"

@@ -1,0 +1,18 @@
+<div class="duplicate-decision-modal">
+  <div class="duplicate-decision-content">
+    <mat-card-header>
+      <mat-card-title class="mat-card-title">Duplicates found:</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <div class="duplicate-decision-container">
+      <div class="decision-cell" *ngFor="let duplicate of decisions; let i = index; trackBy: trackByFn">
+        <label [attr.for]="'decision-select-' + i">Decision for {{ duplicate.username }}:</label>
+        <select title="select-decision" [id]="'decision-select-' + i" [(ngModel)]="decisions[i].decision" [attr.aria-label]="'Select action for ' + duplicate.username">
+          <option value="SKIP">Skip</option>
+          <option value="OVERWRITE">Overwrite</option>
+        </select>
+      </div>
+    </div>
+    <app-secondary-btn (click)="resolveDuplicates()" class="resolve-btn" [buttonText]="'Save Decisions'"></app-secondary-btn>
+  </div>
+</div>

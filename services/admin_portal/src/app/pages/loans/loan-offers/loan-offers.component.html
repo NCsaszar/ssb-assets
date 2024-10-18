@@ -1,0 +1,66 @@
+<div class="component-container loan-offers">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title class="mat-card-title">Loan Offers</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+
+    <button mat-raised-button color="primary" (click)="openCreateModal()">Create New Offer</button>
+    
+      <table mat-table [dataSource]="loanOffers" class="mat-table1">
+        <ng-container matColumnDef="loanID">
+          <th mat-header-cell *matHeaderCellDef> Loan ID </th>
+          <td mat-cell *matCellDef="let offer"> {{offer.loanID}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="loanType">
+          <th mat-header-cell *matHeaderCellDef> Loan Type </th>
+          <td mat-cell *matCellDef="let offer"> {{offer.loanType}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="annualPercentageRate">
+          <th mat-header-cell *matHeaderCellDef> Annual Percentage Rate </th>
+          <td mat-cell *matCellDef="let offer"> {{offer.annualPercentageRate}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="termMonths">
+          <th mat-header-cell *matHeaderCellDef> Term (Months) </th>
+          <td mat-cell *matCellDef="let offer"> {{offer.termMonths}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="maxAmount">
+          <th mat-header-cell *matHeaderCellDef> Max Amount </th>
+          <td mat-cell *matCellDef="let offer"> {{offer.maxAmount}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="minAmount">
+          <th mat-header-cell *matHeaderCellDef> Min Amount </th>
+          <td mat-cell *matCellDef="let offer"> {{offer.minAmount}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="loanStatus">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let offer">
+            <div class="status-cell" [style.background-color]="offer.loanStatus ? 'green' : 'red'">
+              {{ offer.loanStatus ? 'Active' : 'Inactive' }}
+            </div>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef> Edit </th>
+          <td mat-cell *matCellDef="let offer">
+            <button mat-icon-button color="primary" (click)="openEditModal(offer)">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="['loanID', 'loanType', 'annualPercentageRate', 'termMonths', 'maxAmount', 'minAmount', 'loanStatus', 'edit']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['loanID', 'loanType', 'annualPercentageRate', 'termMonths', 'maxAmount', 'minAmount', 'loanStatus', 'edit'];"></tr>
+      </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+
+  </mat-card>
+</div>
+

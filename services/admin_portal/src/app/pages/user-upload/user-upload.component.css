@@ -1,0 +1,141 @@
+.user-upload {
+  min-height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ivory;
+  flex-direction: column;
+  font-family: "Lexend, sans-serif"
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  height: 200px;
+  padding: 1rem;
+  border: dashed 1px var(--primary);
+  border-radius: 4px;
+  position: relative;
+
+  input {
+    opacity: 0;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  label {
+    background-image: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(110, 80, 20, .4), inset 0 -2px 5px 1px rgba(139, 66, 8, 1), inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+    border: 1px solid #a55d07;
+    text-shadow: 0.5px 0.5px 1.2px rgb(255, 255, 167);
+    color: #1c1c1c;
+    font-size: large;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    display: flex;
+    max-width: 150px;
+    align-items: center;
+  }
+
+  h3 {
+    font-size: larger;
+    font-weight: 500;
+    color: white;
+
+  }
+
+  .arrow {
+    display: inline-block;
+    font-size: 24px;
+    animation: jump 1.2s ease-in-out infinite;
+    /* Continuously animate */
+  }
+}
+
+@keyframes jump {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+    /* Move the arrow up by 20 pixels at the halfway point */
+  }
+}
+
+
+.files-list {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-around; 
+  align-items: flex-start; 
+  margin-top: 1.5rem;
+
+
+  .single-file {
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    border: solid 1px var(--primary);
+    background-color: #313131;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    flex-basis: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-light);
+    text-align: center;
+    margin: 10px;
+    cursor: pointer;
+
+    .name {
+      font-size: 14px;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .size {
+      font-size: small;
+      font-weight: 500;
+      color: var(--contrast-light);
+      margin: 0;
+      margin-bottom: 0.25rem;
+    }
+
+    .info {
+      width: 100%
+    }
+
+    .mat-icon{
+      height: 100%;
+      width: 100%;
+    }
+
+    .file {
+      color: ivory;
+      font-size: 50px;
+      margin: 5px;
+    }
+  }
+
+}
+
+@media (max-width: 768px) {
+  .single-file {
+    flex-basis: 100%; /* Makes each file take full width on smaller screens */
+  }
+}
