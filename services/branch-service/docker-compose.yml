@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  backend:
+    env_file:
+      - .env
+    build: .
+    ports:
+      - "8060:8060"
+    environment:
+      - DATABASE_URL=postgres://postgres:root@postgres:5432/branch-service
+      - HOST=postgres
+      - USERNAME=${DB_USERNAME}
+      - PASSWORD=${DB_PASSWORD}
+      - SECRET_KEY=${SECRET_KEY}
+    depends_on:
+      postgres:
+        condition: service_started
+
+  postgres:
+    container_name: branch-service-db
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=branch-service
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD={DB_PASSWORD}

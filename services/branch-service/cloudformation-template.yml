@@ -1,0 +1,97 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: SSB BranchService template.
+Parameters:
+  ECSClusterName:
+    Type: String
+    Default: Ed-Cluster
+  ECSServiceName:
+    Type: String
+    Default: branch
+  SecurityGroupID:
+    Type: String
+    Default: sg-0e13908461cca656e
+  SubnetIDs:
+    Type: CommaDelimitedList
+    Default: subnet-0ce377401822f2dba,subnet-063c2f660455ed12f,subnet-00ae5f59e117b5e71,subnet-09ce917006fcda699,subnet-04d2a8a40651482db,subnet-04feb42a73fc2a2ab
+Resources:
+  UserServiceTaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      Family: branch
+      Cpu: "1024"
+      Memory: "3072"
+      NetworkMode: awsvpc
+      RequiresCompatibilities:
+        - FARGATE
+      ExecutionRoleArn: arn:aws:iam::471112787100:role/ecsTaskExecutionRole
+      ContainerDefinitions:
+        - Name: branch-service
+          Image: 471112787100.dkr.ecr.us-east-1.amazonaws.com/branch-service
+          Essential: true
+          PortMappings:
+            - ContainerPort: 8080
+              HostPort: 8080
+              Protocol: tcp
+              Name: branch-8080-tcp
+              AppProtocol: http
+          Secrets:
+            - Name: AWS_ACCESS_KEY_ID
+              ValueFrom: arn:aws:ssm:us-east-1:471112787100:parameter/ACCESS_KEY_ID
+            - Name: AWS_SECRET_ACCESS_KEY
+              ValueFrom: arn:aws:ssm:us-east-1:471112787100:parameter/SECRET_ACCESS_KEY
+            - Name: jwt-key
+              ValueFrom: arn:aws:secretsmanager:us-east-1:471112787100:secret:jwt-key
+          Environment:
+            - Name: SPRING_DATASOURCE_USERNAME
+              Value: postgres
+            - Name: EUREKA_SERVER_URL
+              Value: http://eureka.ssb:8761/eureka/
+            - Name: HOSTNAME
+              Value: branch.ssb
+            - Name: SPRING_DATASOURCE_PASSWORD
+              Value: postgres
+            - Name: SPRING_DATASOURCE_URL
+              Value: "jdbc:postgresql://branch-service.cnoyci44cqtj.us-east-1.rds.amazonaws.com/branch_db"
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-create-group: "true"
+              awslogs-group: "/ecs/branch"
+              awslogs-region: "us-east-1"
+              awslogs-stream-prefix: "ecs"
+
+  ECSService:
+    Type: AWS::ECS::Service
+    Properties:
+      Cluster: !Sub "arn:aws:ecs:${AWS::Region}:${AWS::AccountId}:cluster/${ECSClusterName}"
+      ServiceName: !Ref ECSServiceName
+      TaskDefinition: !Ref UserServiceTaskDefinition
+      DesiredCount: 0
+      LaunchType: FARGATE
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          AssignPublicIp: ENABLED
+          SecurityGroups: [!Ref SecurityGroupID]
+          Subnets: !Ref SubnetIDs
+      PlatformVersion: LATEST
+      DeploymentConfiguration:
+        MaximumPercent: 200
+        MinimumHealthyPercent: 100
+        DeploymentCircuitBreaker:
+          Enable: true
+          Rollback: true
+      DeploymentController:
+        Type: ECS
+      Tags:
+        - Key: Schedule
+          Value: office-hours
+      EnableECSManagedTags: true
+
+Outputs:
+  ClusterName:
+    Description: The name of the ECS cluster this stack belongs to.
+    Value: !Ref ECSClusterName
+
+  ECSService:
+    Description: The name of the ECS service created by this stack
+    Value: !Ref ECSServiceName
